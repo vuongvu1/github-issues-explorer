@@ -1,8 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useIssueQuery, IssueState } from "./generated/graphql";
 
 function App() {
+  const { data, loading, error } = useIssueQuery({
+    variables: {
+      name: "reactjs.org",
+      owner: "reactjs",
+      status: IssueState.Open,
+    },
+  });
+
+  console.log({ data, loading, error });
+
   return (
     <div className="App">
       <header className="App-header">
