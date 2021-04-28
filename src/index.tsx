@@ -7,11 +7,9 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { ApolloProvider as ApolloHooksProvider } from "@apollo/react-hooks";
-
-import "./index.css";
+import { setContext } from "@apollo/client/link/context";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { setContext } from "@apollo/client/link/context";
 
 const httpLink = createHttpLink({
   uri: process.env.REACT_APP_GITHUB_GRAPHQL_URI,
@@ -38,7 +36,6 @@ ReactDOM.render(
         <App />
       </ApolloHooksProvider>
     </ApolloProvider>
-    ,
   </React.StrictMode>,
   document.getElementById("root")
 );
