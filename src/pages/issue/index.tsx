@@ -1,5 +1,6 @@
 import { useIssueQuery, IssueState } from "src/generated/graphql";
-import SC from "./styles";
+import { DataTable, Layout } from "src/components";
+import { IssueType } from "src/utils/types";
 
 const Error = () => {
   const { data, loading, error } = useIssueQuery({
@@ -10,9 +11,15 @@ const Error = () => {
     },
   });
 
-  console.log({ data, loading, error });
+  const cleanData = data?.repository?.issues?.edges?.map(
+    (edge) => edge?.node
+  ) as IssueType;
 
-  return <SC.Wrapper>Issue</SC.Wrapper>;
+  return (
+    <Layout title="reactjs/reactjs.org - Issues">
+      <DataTable data={cleanData || []} filter="Open" loading={loading} />
+    </Layout>
+  );
 };
 
 export default Error;

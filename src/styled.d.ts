@@ -11,7 +11,7 @@ declare module "styled-components" {
       light: string;
       neutral: string;
       dark: string;
-      boxShadown: string;
+      boxShadow: string;
     };
     breakpoint: {
       sm: string;

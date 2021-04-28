@@ -19,7 +19,7 @@ const SC = {
       ${type === TextType.H2 &&
       css`
         font-weight: bold;
-        font-size: ${theme.fontSize.lg};
+        font-size: ${theme.fontSize.md};
       `}
 
       ${type === TextType.BODY &&

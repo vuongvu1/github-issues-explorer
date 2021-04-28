@@ -11,7 +11,7 @@ export const theme: DefaultTheme = {
     light: "#D9EAFB",
     neutral: "#EFEFEF",
     dark: "#707070",
-    boxShadown: "rgba(165, 165, 168, 0.2)",
+    boxShadow: "rgba(165, 165, 168, 0.2)",
   },
   breakpoint: {
     sm: "480px",
