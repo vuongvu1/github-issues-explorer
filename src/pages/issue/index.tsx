@@ -1,6 +1,7 @@
 import { useIssueQuery, IssueState } from "src/generated/graphql";
+import SC from "./styles";
 
-function App() {
+const Error = () => {
   const { data, loading, error } = useIssueQuery({
     variables: {
       name: "reactjs.org",
@@ -11,11 +12,7 @@ function App() {
 
   console.log({ data, loading, error });
 
-  return (
-    <div>
-      <header></header>
-    </div>
-  );
-}
+  return <SC.Wrapper>Issue</SC.Wrapper>;
+};
 
-export default App;
+export default Error;

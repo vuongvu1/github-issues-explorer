@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { ThemeProvider } from "styled-components";
 import {
   ApolloClient,
   ApolloProvider,
@@ -8,8 +9,9 @@ import {
 } from "@apollo/client";
 import { ApolloProvider as ApolloHooksProvider } from "@apollo/react-hooks";
 import { setContext } from "@apollo/client/link/context";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import GlobalStyle, { theme } from "./globalStyles";
+import App from "./router";
 
 const httpLink = createHttpLink({
   uri: process.env.REACT_APP_GITHUB_GRAPHQL_URI,
@@ -31,9 +33,12 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <React.StrictMode>
+    <GlobalStyle />
     <ApolloProvider client={client}>
       <ApolloHooksProvider client={client}>
-        <App />
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
       </ApolloHooksProvider>
     </ApolloProvider>
   </React.StrictMode>,
