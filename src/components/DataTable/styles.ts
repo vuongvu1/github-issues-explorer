@@ -51,6 +51,10 @@ const SC = {
           > a {
             text-decoration: none;
             color: ${theme.palette.black};
+
+            &:hover {
+              opacity: 0.7;
+            }
           }
 
           > * {
@@ -67,6 +71,13 @@ const SC = {
           display: flex;
           align-items: center;
           justify-content: space-around;
+          cursor: pointer;
+          text-decoration: none;
+          color: ${theme.palette.black};
+
+          &:hover {
+            opacity: 0.7;
+          }
         }
       }
 

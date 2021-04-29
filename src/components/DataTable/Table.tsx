@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { IssueState } from "src/generated/graphql";
 import { Spinner } from "src/assets/icons";
 import { IssueType } from "src/utils/types";
+import { timeSince } from "src/utils/time";
 import {
   CircleWarning as CircleIcon,
   Tick as TickIcon,
@@ -38,18 +39,26 @@ const Table: React.FC<Props> = ({ issues, filter, loading }) => {
           Closed
         </SC.Filter>
       </SC.Header>
-      {issues.map(({ id, title }) => (
+      {issues.map(({ id, title, number, author, createdAt, comments }) => (
         <SC.Row key={id}>
           <div>
             <CircleIcon fill={palette.success} />
           </div>
           <div>
             <Link to="/404">{title}</Link>
-            <div>#3656 opened 5 days ago by user670</div>
+            <div>
+              #{number} opened {timeSince(new Date(createdAt))} ago by{" "}
+              {author.login}
+            </div>
           </div>
-          <div>
-            <CommentIcon />3
-          </div>
+          <Link to="/404">
+            {(comments.totalCount || null) && (
+              <>
+                <CommentIcon />
+                {comments.totalCount}
+              </>
+            )}
+          </Link>
         </SC.Row>
       ))}
     </SC.TableContainer>

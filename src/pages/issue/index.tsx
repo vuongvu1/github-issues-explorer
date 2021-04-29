@@ -3,7 +3,7 @@ import { DataTable, Layout } from "src/components";
 import { IssueType } from "src/utils/types";
 
 const Error = () => {
-  const { data, loading } = useIssueQuery({
+  const { data, loading, error } = useIssueQuery({
     variables: {
       name: "reactjs.org",
       owner: "reactjs",
@@ -14,6 +14,9 @@ const Error = () => {
   const cleanData = data?.repository?.issues?.edges?.map(
     (edge) => edge?.node
   ) as IssueType;
+
+  console.log(cleanData);
+  console.log({ error });
 
   return (
     <Layout title="reactjs / reactjs.org - Issues">

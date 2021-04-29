@@ -1,10 +1,18 @@
 query Issue($name: String!, $owner: String!, $status: [IssueState!]) {
   repository(name: $name, owner: $owner) {
-    issues(first: 10, filterBy: { states: $status }) {
+    issues(last: 10, filterBy: { states: $status }) {
       edges {
         node {
           id
           title
+          number
+          createdAt
+          author {
+            login
+          }
+          comments {
+            totalCount
+          }
         }
       }
     }

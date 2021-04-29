@@ -19681,7 +19681,26 @@ export type IssueQuery = (
         { __typename?: 'IssueEdge' }
         & { node?: Maybe<(
           { __typename?: 'Issue' }
-          & Pick<Issue, 'id' | 'title'>
+          & Pick<Issue, 'id' | 'title' | 'number' | 'createdAt'>
+          & { author?: Maybe<(
+            { __typename?: 'Bot' }
+            & Pick<Bot, 'login'>
+          ) | (
+            { __typename?: 'EnterpriseUserAccount' }
+            & Pick<EnterpriseUserAccount, 'login'>
+          ) | (
+            { __typename?: 'Mannequin' }
+            & Pick<Mannequin, 'login'>
+          ) | (
+            { __typename?: 'Organization' }
+            & Pick<Organization, 'login'>
+          ) | (
+            { __typename?: 'User' }
+            & Pick<User, 'login'>
+          )>, comments: (
+            { __typename?: 'IssueCommentConnection' }
+            & Pick<IssueCommentConnection, 'totalCount'>
+          ) }
         )> }
       )>>> }
     ) }
@@ -19692,11 +19711,19 @@ export type IssueQuery = (
 export const IssueDocument = gql`
     query Issue($name: String!, $owner: String!, $status: [IssueState!]) {
   repository(name: $name, owner: $owner) {
-    issues(first: 10, filterBy: {states: $status}) {
+    issues(last: 10, filterBy: {states: $status}) {
       edges {
         node {
           id
           title
+          number
+          createdAt
+          author {
+            login
+          }
+          comments {
+            totalCount
+          }
         }
       }
     }
