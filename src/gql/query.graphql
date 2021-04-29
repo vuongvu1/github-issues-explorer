@@ -29,3 +29,11 @@ query Issue(
     }
   }
 }
+
+query IssueCount($name: String!, $owner: String!) {
+  repository(name: $name, owner: $owner) {
+    issues {
+      totalCount
+    }
+  }
+}

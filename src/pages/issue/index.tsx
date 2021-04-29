@@ -2,6 +2,7 @@ import { FC } from "react";
 import { connect } from "react-redux";
 import {
   useIssueQuery,
+  useIssueCountQuery,
   IssueState,
   IssueOrderField,
   OrderDirection,
@@ -15,12 +16,16 @@ type Props = {
   owner?: string;
 };
 
-const Issue: FC<Props> = ({ name, owner }) => {
-  const filter = IssueState.Open;
+const Issue: FC<Props> = ({ name = "reactjs.org", owner = "reactjs" }) => {
+  const filter = IssueState.Closed;
   const orderBy = IssueOrderField.CreatedAt;
   const orderDir = OrderDirection.Desc;
 
-  const { data, loading, error } = useIssueQuery({
+  const { data: countData } = useIssueCountQuery({
+    variables: { name, owner },
+  });
+
+  const { data: issueData, loading, error } = useIssueQuery({
     variables: {
       name: name || "reactjs.org",
       owner: owner || "reactjs",
@@ -30,11 +35,11 @@ const Issue: FC<Props> = ({ name, owner }) => {
     },
   });
 
-  const cleanData = data?.repository?.issues?.edges?.map(
+  const cleanData = issueData?.repository?.issues?.edges?.map(
     (edge) => edge?.node
   ) as IssueType[];
-
-  const totalCount = data?.repository?.issues?.totalCount;
+  const issueCount = issueData?.repository?.issues?.totalCount;
+  const totalCount = countData?.repository?.issues?.totalCount;
 
   return (
     <Layout title="reactjs / reactjs.org - Issues">
@@ -42,8 +47,9 @@ const Issue: FC<Props> = ({ name, owner }) => {
         data={cleanData || []}
         filter={filter}
         loading={loading}
+        issueCount={issueCount || 0}
         totalCount={totalCount || 0}
-        error={error?.message}
+        error={!issueCount ? error?.message : undefined}
       />
     </Layout>
   );

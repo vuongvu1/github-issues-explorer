@@ -8,6 +8,7 @@ interface Props {
   data: IssueType[];
   filter: IssueState;
   loading?: boolean;
+  issueCount: number;
   totalCount: number;
   error?: string;
 }
@@ -16,6 +17,7 @@ const DataTable: React.FC<Props> = ({
   filter,
   data,
   loading,
+  issueCount,
   totalCount,
   error,
 }) => {
@@ -25,6 +27,7 @@ const DataTable: React.FC<Props> = ({
         issues={data}
         filter={filter}
         loading={loading}
+        issueCount={issueCount}
         totalCount={totalCount}
         error={error}
       />

@@ -19710,6 +19710,23 @@ export type IssueQuery = (
   )> }
 );
 
+export type IssueCountQueryVariables = Exact<{
+  name: Scalars['String'];
+  owner: Scalars['String'];
+}>;
+
+
+export type IssueCountQuery = (
+  { __typename?: 'Query' }
+  & { repository?: Maybe<(
+    { __typename?: 'Repository' }
+    & { issues: (
+      { __typename?: 'IssueConnection' }
+      & Pick<IssueConnection, 'totalCount'>
+    ) }
+  )> }
+);
+
 
 export const IssueDocument = gql`
     query Issue($name: String!, $owner: String!, $status: [IssueState!], $orderBy: IssueOrderField!, $orderDir: OrderDirection!) {
@@ -19770,3 +19787,41 @@ export function useIssueLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Issu
 export type IssueQueryHookResult = ReturnType<typeof useIssueQuery>;
 export type IssueLazyQueryHookResult = ReturnType<typeof useIssueLazyQuery>;
 export type IssueQueryResult = Apollo.QueryResult<IssueQuery, IssueQueryVariables>;
+export const IssueCountDocument = gql`
+    query IssueCount($name: String!, $owner: String!) {
+  repository(name: $name, owner: $owner) {
+    issues {
+      totalCount
+    }
+  }
+}
+    `;
+
+/**
+ * __useIssueCountQuery__
+ *
+ * To run a query within a React component, call `useIssueCountQuery` and pass it any options that fit your needs.
+ * When your component renders, `useIssueCountQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useIssueCountQuery({
+ *   variables: {
+ *      name: // value for 'name'
+ *      owner: // value for 'owner'
+ *   },
+ * });
+ */
+export function useIssueCountQuery(baseOptions: Apollo.QueryHookOptions<IssueCountQuery, IssueCountQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<IssueCountQuery, IssueCountQueryVariables>(IssueCountDocument, options);
+      }
+export function useIssueCountLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<IssueCountQuery, IssueCountQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<IssueCountQuery, IssueCountQueryVariables>(IssueCountDocument, options);
+        }
+export type IssueCountQueryHookResult = ReturnType<typeof useIssueCountQuery>;
+export type IssueCountLazyQueryHookResult = ReturnType<typeof useIssueCountLazyQuery>;
+export type IssueCountQueryResult = Apollo.QueryResult<IssueCountQuery, IssueCountQueryVariables>;

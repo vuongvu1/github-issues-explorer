@@ -17,6 +17,7 @@ interface Props {
   issues: IssueType[];
   loading?: boolean;
   filter: IssueState;
+  issueCount: number;
   totalCount: number;
   error?: string;
 }
@@ -25,10 +26,12 @@ const Table: React.FC<Props> = ({
   issues,
   filter,
   loading,
+  issueCount,
   totalCount,
   error,
 }) => {
   const { palette } = useTheme();
+  const isFilterOpen = filter === IssueState.Open;
 
   return (
     <SC.TableContainer>
@@ -39,13 +42,13 @@ const Table: React.FC<Props> = ({
       )}
 
       <SC.Header>
-        <SC.Filter isActive={filter === IssueState.Open}>
+        <SC.Filter isActive={isFilterOpen}>
           <CircleWarningIcon title="Open Issues" />
-          {totalCount} Open
+          {isFilterOpen ? issueCount : totalCount - issueCount} Open
         </SC.Filter>
         <SC.Filter isActive={filter === IssueState.Closed}>
           <TickIcon title="Closed Issues" />
-          Closed
+          {!isFilterOpen ? issueCount : totalCount - issueCount} Closed
         </SC.Filter>
       </SC.Header>
       {issues.length === 0 && <SC.Row>No issues found.</SC.Row>}
