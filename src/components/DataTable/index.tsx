@@ -7,6 +7,7 @@ import SC from "./styles";
 interface Props {
   data: IssueType[];
   filter: IssueState;
+  setFilter: (filter: IssueState) => void;
   loading?: boolean;
   issueCount: number;
   totalCount: number;
@@ -15,6 +16,7 @@ interface Props {
 
 const DataTable: React.FC<Props> = ({
   filter,
+  setFilter,
   data,
   loading,
   issueCount,
@@ -26,6 +28,7 @@ const DataTable: React.FC<Props> = ({
       <Table
         issues={data}
         filter={filter}
+        setFilter={setFilter}
         loading={loading}
         issueCount={issueCount}
         totalCount={totalCount}

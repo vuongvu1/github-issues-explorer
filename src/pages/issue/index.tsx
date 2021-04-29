@@ -8,16 +8,23 @@ import {
   OrderDirection,
 } from "src/generated/graphql";
 import { RootState } from "src/reducers";
+import { setFilter as setFilterAction } from "src/reducers/repoSlice";
 import { DataTable, Layout } from "src/components";
 import { IssueType } from "src/utils/types";
 
 type Props = {
   name?: string;
   owner?: string;
+  filter: IssueState;
+  setFilter: (filter: IssueState) => void;
 };
 
-const Issue: FC<Props> = ({ name = "reactjs.org", owner = "reactjs" }) => {
-  const filter = IssueState.Closed;
+const Issue: FC<Props> = ({
+  name = "reactjs.org",
+  owner = "reactjs",
+  filter,
+  setFilter,
+}) => {
   const orderBy = IssueOrderField.CreatedAt;
   const orderDir = OrderDirection.Desc;
 
@@ -46,6 +53,7 @@ const Issue: FC<Props> = ({ name = "reactjs.org", owner = "reactjs" }) => {
       <DataTable
         data={cleanData || []}
         filter={filter}
+        setFilter={setFilter}
         loading={loading}
         issueCount={issueCount || 0}
         totalCount={totalCount || 0}
@@ -55,9 +63,14 @@ const Issue: FC<Props> = ({ name = "reactjs.org", owner = "reactjs" }) => {
   );
 };
 
+const mapDispatchToProps = {
+  setFilter: setFilterAction,
+};
+
 const mapStateToProps = ({ repoSlice }: RootState) => ({
   name: repoSlice.name,
   owner: repoSlice.owner,
+  filter: repoSlice.filter,
 });
 
-export default connect(mapStateToProps)(Issue);
+export default connect(mapStateToProps, mapDispatchToProps)(Issue);

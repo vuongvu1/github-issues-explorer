@@ -17,6 +17,7 @@ interface Props {
   issues: IssueType[];
   loading?: boolean;
   filter: IssueState;
+  setFilter: (filter: IssueState) => void;
   issueCount: number;
   totalCount: number;
   error?: string;
@@ -25,6 +26,7 @@ interface Props {
 const Table: React.FC<Props> = ({
   issues,
   filter,
+  setFilter,
   loading,
   issueCount,
   totalCount,
@@ -32,6 +34,7 @@ const Table: React.FC<Props> = ({
 }) => {
   const { palette } = useTheme();
   const isFilterOpen = filter === IssueState.Open;
+  const nonSelectedIssueCount = issueCount ? totalCount - issueCount : 0;
 
   return (
     <SC.TableContainer>
@@ -42,13 +45,19 @@ const Table: React.FC<Props> = ({
       )}
 
       <SC.Header>
-        <SC.Filter isActive={isFilterOpen}>
+        <SC.Filter
+          isActive={isFilterOpen}
+          onClick={() => setFilter(IssueState.Open)}
+        >
           <CircleWarningIcon title="Open Issues" />
-          {isFilterOpen ? issueCount : totalCount - issueCount} Open
+          {isFilterOpen ? issueCount : nonSelectedIssueCount} Open
         </SC.Filter>
-        <SC.Filter isActive={filter === IssueState.Closed}>
+        <SC.Filter
+          isActive={!isFilterOpen}
+          onClick={() => setFilter(IssueState.Closed)}
+        >
           <TickIcon title="Closed Issues" />
-          {!isFilterOpen ? issueCount : totalCount - issueCount} Closed
+          {!isFilterOpen ? issueCount : nonSelectedIssueCount} Closed
         </SC.Filter>
       </SC.Header>
       {issues.length === 0 && <SC.Row>No issues found.</SC.Row>}
