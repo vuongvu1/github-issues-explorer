@@ -1,6 +1,17 @@
-query Issue($name: String!, $owner: String!, $status: [IssueState!]) {
+query Issue(
+  $name: String!
+  $owner: String!
+  $status: [IssueState!]
+  $orderBy: IssueOrderField!
+  $orderDir: OrderDirection!
+) {
   repository(name: $name, owner: $owner) {
-    issues(last: 10, filterBy: { states: $status }) {
+    issues(
+      first: 10
+      filterBy: { states: $status }
+      orderBy: { field: $orderBy, direction: $orderDir }
+    ) {
+      totalCount
       edges {
         node {
           id

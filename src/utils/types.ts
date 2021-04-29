@@ -1,4 +1,4 @@
-export type IssueType = Array<{
+export type IssueType = {
   id: string;
   title: string;
   number: number;
@@ -9,4 +9,4 @@ export type IssueType = Array<{
   comments: {
     totalCount: number;
   };
-}>;
+};

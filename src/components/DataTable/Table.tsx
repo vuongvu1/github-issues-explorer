@@ -6,19 +6,28 @@ import { Spinner } from "src/assets/icons";
 import { IssueType } from "src/utils/types";
 import { timeSince } from "src/utils/time";
 import {
-  CircleWarning as CircleIcon,
+  CircleWarning as CircleWarningIcon,
+  CircleError as CircleErrorIcon,
   Tick as TickIcon,
   Comment as CommentIcon,
 } from "src/assets/icons";
 import SC from "./styles";
 
 interface Props {
-  issues: IssueType;
+  issues: IssueType[];
   loading?: boolean;
   filter: IssueState;
+  totalCount: number;
+  error?: string;
 }
 
-const Table: React.FC<Props> = ({ issues, filter, loading }) => {
+const Table: React.FC<Props> = ({
+  issues,
+  filter,
+  loading,
+  totalCount,
+  error,
+}) => {
   const { palette } = useTheme();
 
   return (
@@ -31,27 +40,33 @@ const Table: React.FC<Props> = ({ issues, filter, loading }) => {
 
       <SC.Header>
         <SC.Filter isActive={filter === IssueState.Open}>
-          <CircleIcon title="Open Issues" />
-          Open
+          <CircleWarningIcon title="Open Issues" />
+          {totalCount} Open
         </SC.Filter>
         <SC.Filter isActive={filter === IssueState.Closed}>
           <TickIcon title="Closed Issues" />
           Closed
         </SC.Filter>
       </SC.Header>
+      {issues.length === 0 && <SC.Row>No issues found.</SC.Row>}
+      {error && <SC.Row isError>Error: {error}</SC.Row>}
       {issues.map(({ id, title, number, author, createdAt, comments }) => (
         <SC.Row key={id}>
           <div>
-            <CircleIcon fill={palette.success} />
+            {filter === IssueState.Open ? (
+              <CircleWarningIcon fill={palette.success} />
+            ) : (
+              <CircleErrorIcon fill={palette.error} />
+            )}
           </div>
           <div>
-            <Link to="/404">{title}</Link>
+            <Link to={`/issue/${number}`}>{title}</Link>
             <div>
               #{number} opened {timeSince(new Date(createdAt))} ago by{" "}
               {author.login}
             </div>
           </div>
-          <Link to="/404">
+          <Link to={`/issue/${number}`}>
             {(comments.totalCount || null) && (
               <>
                 <CommentIcon />

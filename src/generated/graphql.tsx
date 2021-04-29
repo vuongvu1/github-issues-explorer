@@ -19668,6 +19668,8 @@ export type IssueQueryVariables = Exact<{
   name: Scalars['String'];
   owner: Scalars['String'];
   status?: Maybe<Array<IssueState> | IssueState>;
+  orderBy: IssueOrderField;
+  orderDir: OrderDirection;
 }>;
 
 
@@ -19677,6 +19679,7 @@ export type IssueQuery = (
     { __typename?: 'Repository' }
     & { issues: (
       { __typename?: 'IssueConnection' }
+      & Pick<IssueConnection, 'totalCount'>
       & { edges?: Maybe<Array<Maybe<(
         { __typename?: 'IssueEdge' }
         & { node?: Maybe<(
@@ -19709,9 +19712,14 @@ export type IssueQuery = (
 
 
 export const IssueDocument = gql`
-    query Issue($name: String!, $owner: String!, $status: [IssueState!]) {
+    query Issue($name: String!, $owner: String!, $status: [IssueState!], $orderBy: IssueOrderField!, $orderDir: OrderDirection!) {
   repository(name: $name, owner: $owner) {
-    issues(last: 10, filterBy: {states: $status}) {
+    issues(
+      first: 10
+      filterBy: {states: $status}
+      orderBy: {field: $orderBy, direction: $orderDir}
+    ) {
+      totalCount
       edges {
         node {
           id
@@ -19746,6 +19754,8 @@ export const IssueDocument = gql`
  *      name: // value for 'name'
  *      owner: // value for 'owner'
  *      status: // value for 'status'
+ *      orderBy: // value for 'orderBy'
+ *      orderDir: // value for 'orderDir'
  *   },
  * });
  */

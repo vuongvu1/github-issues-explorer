@@ -26,8 +26,8 @@ const SC = {
       align-items: center;
     `
   ),
-  Row: styled.div(
-    ({ theme }) => css`
+  Row: styled.div<{ isError?: boolean }>(
+    ({ theme, isError }) => css`
       padding: ${theme.spacing.md};
       border: 1px solid ${theme.palette.dark};
       border-top: none;
@@ -46,6 +46,7 @@ const SC = {
           margin-right: ${theme.spacing.sm};
         }
         &:nth-child(2) {
+          margin-right: ${theme.spacing.sm};
           flex: 1;
 
           > a {
@@ -88,6 +89,11 @@ const SC = {
       &:hover {
         background-color: ${theme.palette.neutralLight};
       }
+
+      ${isError &&
+      css`
+        color: ${theme.palette.error};
+      `}
     `
   ),
   LoadingOverlay: styled.div(
