@@ -5,7 +5,7 @@ const SC = {
     ({ theme }) => css`
       background-color: ${theme.palette.white};
       width: 100vw;
-      height: 100vh;
+      height: 80vh;
       display: grid;
       place-items: center;
     `

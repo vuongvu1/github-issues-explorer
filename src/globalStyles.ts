@@ -30,7 +30,7 @@ export const theme: DefaultTheme = {
   },
   fontWeight: {
     sm: 400,
-    md: 700,
+    md: 600,
     lg: 900,
   },
   borderRadius: "8px",
@@ -52,7 +52,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
-    background-color: ${theme.palette.white};
+    background-color: ${theme.palette.neutral};
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;

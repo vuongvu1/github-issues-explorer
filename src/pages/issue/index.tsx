@@ -3,7 +3,7 @@ import { DataTable, Layout } from "src/components";
 import { IssueType } from "src/utils/types";
 
 const Error = () => {
-  const { data, loading, error } = useIssueQuery({
+  const { data, loading } = useIssueQuery({
     variables: {
       name: "reactjs.org",
       owner: "reactjs",

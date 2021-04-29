@@ -1,5 +1,5 @@
 {
-  "name": "github-issue-explorer",
+  "name": "github-issues-explorer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
