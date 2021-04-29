@@ -1,21 +1,29 @@
+import { FC } from "react";
+import { connect } from "react-redux";
 import {
   useIssueQuery,
   IssueState,
   IssueOrderField,
   OrderDirection,
 } from "src/generated/graphql";
+import { RootState } from "src/reducers";
 import { DataTable, Layout } from "src/components";
 import { IssueType } from "src/utils/types";
 
-const Issue = () => {
+type Props = {
+  name?: string;
+  owner?: string;
+};
+
+const Issue: FC<Props> = ({ name, owner }) => {
   const filter = IssueState.Open;
   const orderBy = IssueOrderField.CreatedAt;
   const orderDir = OrderDirection.Desc;
 
   const { data, loading, error } = useIssueQuery({
     variables: {
-      name: "reactjs.org",
-      owner: "reactjs",
+      name: name || "reactjs.org",
+      owner: owner || "reactjs",
       status: filter,
       orderBy,
       orderDir,
@@ -27,8 +35,6 @@ const Issue = () => {
   ) as IssueType[];
 
   const totalCount = data?.repository?.issues?.totalCount;
-
-  console.log(cleanData);
 
   return (
     <Layout title="reactjs / reactjs.org - Issues">
@@ -43,4 +49,9 @@ const Issue = () => {
   );
 };
 
-export default Issue;
+const mapStateToProps = ({ repoSlice }: RootState) => ({
+  name: repoSlice.name,
+  owner: repoSlice.owner,
+});
+
+export default connect(mapStateToProps)(Issue);

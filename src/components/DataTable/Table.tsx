@@ -70,7 +70,7 @@ const Table: React.FC<Props> = ({
             {(comments.totalCount || null) && (
               <>
                 <CommentIcon />
-                {comments.totalCount}
+                &nbsp;{comments.totalCount}
               </>
             )}
           </Link>

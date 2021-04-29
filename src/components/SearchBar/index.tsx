@@ -3,11 +3,12 @@ import debounce from "src/utils/debounce";
 import SC from "./styles";
 
 interface Props {
+  githubUrl?: string;
   onSearch: (text: string) => void;
 }
 
-const SearchBar: React.FC<Props> = ({ onSearch }) => {
-  const [text, setText] = useState("");
+const SearchBar: React.FC<Props> = ({ githubUrl, onSearch }) => {
+  const [text, setText] = useState(githubUrl);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const searchWithDebounce = useCallback(
@@ -18,9 +19,7 @@ const SearchBar: React.FC<Props> = ({ onSearch }) => {
   );
 
   useEffect(() => {
-    if (text) {
-      searchWithDebounce(text);
-    }
+    if (text) searchWithDebounce(text);
   }, [searchWithDebounce, text]);
 
   return (

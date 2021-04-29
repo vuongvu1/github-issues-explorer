@@ -68,7 +68,7 @@ const SC = {
         }
         &:nth-child(3) {
           align-self: flex-start;
-          width: 36px;
+          min-width: 36px;
           display: flex;
           align-items: center;
           justify-content: space-around;

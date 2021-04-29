@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider as StoreProvider } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import {
   ApolloClient,
@@ -11,6 +12,7 @@ import { ApolloProvider as ApolloHooksProvider } from "@apollo/react-hooks";
 import { setContext } from "@apollo/client/link/context";
 import reportWebVitals from "./reportWebVitals";
 import GlobalStyle, { theme } from "./globalStyles";
+import store from "./store";
 import App from "./router";
 
 const httpLink = createHttpLink({
@@ -37,7 +39,9 @@ ReactDOM.render(
     <ApolloProvider client={client}>
       <ApolloHooksProvider client={client}>
         <ThemeProvider theme={theme}>
-          <App />
+          <StoreProvider store={store}>
+            <App />
+          </StoreProvider>
         </ThemeProvider>
       </ApolloHooksProvider>
     </ApolloProvider>

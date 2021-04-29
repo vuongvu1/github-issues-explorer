@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { mediaQueries } from "src/globalStyles";
-import { Search } from "src/assets/icons";
+import { Search as SearchIcon } from "src/assets/icons";
 
 const SC = {
   Container: styled.div`
@@ -22,7 +22,7 @@ const SC = {
       padding: 0 34px 0 12px;
     `
   ),
-  Search: styled(Search)`
+  Search: styled(SearchIcon)`
     position: absolute;
     top: 8px;
     right: 12px;
