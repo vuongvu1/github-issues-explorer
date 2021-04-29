@@ -1,11 +1,12 @@
 import React from "react";
+import { IssueState } from "src/generated/graphql";
 import { IssueType } from "src/utils/types";
 import Table from "./Table";
 import SC from "./styles";
 
 interface Props {
   data: IssueType;
-  filter: "Open" | "Closed";
+  filter: IssueState;
   loading?: boolean;
 }
 

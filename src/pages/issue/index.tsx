@@ -16,8 +16,12 @@ const Error = () => {
   ) as IssueType;
 
   return (
-    <Layout title="reactjs/reactjs.org - Issues">
-      <DataTable data={cleanData || []} filter="Open" loading={loading} />
+    <Layout title="reactjs / reactjs.org - Issues">
+      <DataTable
+        data={cleanData || []}
+        filter={IssueState.Open}
+        loading={loading}
+      />
     </Layout>
   );
 };

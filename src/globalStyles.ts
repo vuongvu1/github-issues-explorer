@@ -6,12 +6,15 @@ export const theme: DefaultTheme = {
   palette: {
     white: "#FFFFFF",
     black: "#000000",
-    primary: "#3F7EF0",
-    secondary: "#63AEF7",
+    primary: "#2E2924",
+    secondary: "#514840",
     light: "#D9EAFB",
     neutral: "#EFEFEF",
-    dark: "#707070",
+    neutralLight: "#F6F8FA",
+    dark: "#E1E4E8",
     boxShadow: "rgba(165, 165, 168, 0.2)",
+    success: "#22863A",
+    error: "#CB2431",
   },
   breakpoint: {
     sm: "480px",

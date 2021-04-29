@@ -19,19 +19,63 @@ const SC = {
   Header: styled.div(
     ({ theme }) => css`
       padding: ${theme.spacing.md};
-      border: 1px solid ${theme.palette.light};
+      border: 1px solid ${theme.palette.dark};
       border-radius: ${theme.borderRadius} ${theme.borderRadius} 0 0;
+      background-color: ${theme.palette.neutralLight};
+      display: flex;
+      align-items: center;
     `
   ),
   Row: styled.div(
     ({ theme }) => css`
       padding: ${theme.spacing.md};
-      border: 1px solid ${theme.palette.light};
+      border: 1px solid ${theme.palette.dark};
       border-top: none;
       font-weight: ${theme.fontWeight.md};
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      > * {
+        &:nth-child(1) {
+          align-self: flex-start;
+          width: auto;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          margin-right: ${theme.spacing.sm};
+        }
+        &:nth-child(2) {
+          flex: 1;
+
+          > a {
+            text-decoration: none;
+            color: ${theme.palette.black};
+          }
+
+          > * {
+            &:nth-last-child(1) {
+              font-size: 12px;
+              font-weight: ${theme.fontWeight.sm};
+              margin-top: ${theme.spacing.sm};
+            }
+          }
+        }
+        &:nth-child(3) {
+          align-self: flex-start;
+          width: 36px;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+        }
+      }
 
       &:nth-last-child(1) {
         border-radius: 0 0 ${theme.borderRadius} ${theme.borderRadius};
+      }
+
+      &:hover {
+        background-color: ${theme.palette.neutralLight};
       }
     `
   ),
@@ -46,6 +90,27 @@ const SC = {
       display: flex;
       justify-content: center;
       align-items: center;
+    `
+  ),
+  Filter: styled.div<{ isActive?: boolean }>(
+    ({ theme, isActive }) => css`
+      display: flex;
+      align-items: center;
+      margin-right: ${theme.spacing.md};
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      ${isActive &&
+      css`
+        font-weight: ${theme.fontWeight.md};
+      `}
+
+      > * {
+        margin-right: ${theme.spacing.sm};
+      }
     `
   ),
 };

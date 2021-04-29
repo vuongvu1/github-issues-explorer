@@ -10,8 +10,11 @@ declare module "styled-components" {
       secondary: string;
       light: string;
       neutral: string;
+      neutralLight: string;
       dark: string;
       boxShadow: string;
+      success: string;
+      error: string;
     };
     breakpoint: {
       sm: string;
