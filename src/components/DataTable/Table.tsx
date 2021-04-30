@@ -2,9 +2,9 @@ import React from "react";
 import { useTheme } from "styled-components";
 import { Link } from "react-router-dom";
 import { IssueState } from "src/generated/graphql";
-import { Spinner } from "src/assets/icons";
 import { IssueType } from "src/reducers/types";
 import { timeSince } from "src/utils/time";
+import { LoadingOverlay } from "..";
 import {
   CircleWarning as CircleWarningIcon,
   CircleError as CircleErrorIcon,
@@ -39,12 +39,7 @@ const Table: React.FC<Props> = ({
 
   return (
     <SC.TableContainer>
-      {loading && (
-        <SC.LoadingOverlay>
-          <Spinner width="48" height="48" />
-        </SC.LoadingOverlay>
-      )}
-
+      <LoadingOverlay isLoading={loading} />
       <SC.Header>
         <SC.Filter
           isActive={isFilterOpen}

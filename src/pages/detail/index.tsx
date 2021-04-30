@@ -2,7 +2,7 @@ import { FC } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useIssueDetailQuery } from "src/generated/graphql";
-import { AuthorType, RootState } from "src/reducers/types";
+import { AuthorType, RootState, CommentType } from "src/reducers/types";
 import { Layout, DetailView } from "src/components";
 
 type Props = {
@@ -21,21 +21,23 @@ const Detail: FC<Props> = ({ owner, name }) => {
     },
   });
 
-  console.log(data);
   const cleanData = data?.repository?.issue;
+  const comments = cleanData?.comments?.edges?.map(
+    (edge) => edge?.node
+  ) as CommentType[];
 
   return (
     <Layout title={`${owner} / ${name} - Issues #${id}`}>
-      {cleanData && (
-        <DetailView
-          title={cleanData.title}
-          author={cleanData.author as AuthorType}
-          createdAt={cleanData.createdAt}
-          status={cleanData.state}
-          // body={cleanData?.body}
-          // comments={cleanData?.comments}
-        />
-      )}
+      <DetailView
+        title={cleanData?.title}
+        author={cleanData?.author as AuthorType}
+        createdAt={cleanData?.createdAt}
+        status={cleanData?.state}
+        body={cleanData?.body}
+        comments={comments}
+        loading={loading}
+        error={!cleanData ? error?.message : undefined}
+      />
     </Layout>
   );
 };

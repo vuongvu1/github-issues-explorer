@@ -96,19 +96,6 @@ const SC = {
       `}
     `
   ),
-  LoadingOverlay: styled.div(
-    ({ theme }) => css`
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: ${theme.palette.boxShadow};
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    `
-  ),
   Filter: styled.div<{ isActive?: boolean }>(
     ({ theme, isActive }) => css`
       display: flex;

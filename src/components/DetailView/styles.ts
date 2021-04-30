@@ -53,6 +53,12 @@ const SC = {
           `};
     `
   ),
+  Error: styled.span(
+    ({ theme }) => css`
+      color: ${theme.palette.error};
+      font-weight: ${theme.fontWeight.md};
+    `
+  ),
 };
 
 export default SC;

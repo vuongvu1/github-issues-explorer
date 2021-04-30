@@ -36,3 +36,9 @@ export type AuthorType = {
   avatarUrl: string;
   login: string;
 };
+
+export type CommentType = {
+  body: string;
+  createdAt: string;
+  author: AuthorType;
+};
