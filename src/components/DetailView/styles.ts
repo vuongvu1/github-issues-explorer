@@ -8,7 +8,7 @@ const SC = {
       flex: 2;
       display: flex;
       flex-direction: column;
-      padding: ${theme.spacing.md};
+      padding: ${theme.spacing.lg};
       background-color: ${theme.palette.white};
       box-shadow: 0px 1px 0px ${theme.palette.boxShadow};
       border-radius: 12px;
@@ -21,7 +21,7 @@ const SC = {
   ),
   BackButton: styled(Link)(
     ({ theme }) => css`
-      position: fixed;
+      position: absolute;
       top: 150px;
       left: ${theme.spacing.lg};
       text-decoration: none;

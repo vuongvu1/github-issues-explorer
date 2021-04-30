@@ -6,3 +6,4 @@ export { default as Layout } from "./Layout";
 export { default as DetailView } from "./DetailView";
 export { default as LoadingOverlay } from "./LoadingOverlay";
 export { default as CommentViewer } from "./CommentViewer";
+export { default as CommentEditor } from "./CommentEditor";

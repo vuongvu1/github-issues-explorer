@@ -1,3 +1,10 @@
+query User {
+  viewer {
+    login
+    avatarUrl
+  }
+}
+
 query Issue(
   $name: String!
   $owner: String!

@@ -19664,6 +19664,17 @@ export type ViewerHovercardContext = HovercardContext & {
 };
 
 
+export type UserQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type UserQuery = (
+  { __typename?: 'Query' }
+  & { viewer: (
+    { __typename?: 'User' }
+    & Pick<User, 'login' | 'avatarUrl'>
+  ) }
+);
+
 export type IssueQueryVariables = Exact<{
   name: Scalars['String'];
   owner: Scalars['String'];
@@ -19794,6 +19805,41 @@ export type IssueDetailQuery = (
 );
 
 
+export const UserDocument = gql`
+    query User {
+  viewer {
+    login
+    avatarUrl
+  }
+}
+    `;
+
+/**
+ * __useUserQuery__
+ *
+ * To run a query within a React component, call `useUserQuery` and pass it any options that fit your needs.
+ * When your component renders, `useUserQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useUserQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useUserQuery(baseOptions?: Apollo.QueryHookOptions<UserQuery, UserQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<UserQuery, UserQueryVariables>(UserDocument, options);
+      }
+export function useUserLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<UserQuery, UserQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<UserQuery, UserQueryVariables>(UserDocument, options);
+        }
+export type UserQueryHookResult = ReturnType<typeof useUserQuery>;
+export type UserLazyQueryHookResult = ReturnType<typeof useUserLazyQuery>;
+export type UserQueryResult = Apollo.QueryResult<UserQuery, UserQueryVariables>;
 export const IssueDocument = gql`
     query Issue($name: String!, $owner: String!, $status: [IssueState!], $orderBy: IssueOrderField!, $orderDir: OrderDirection!, $after: String, $before: String, $first: Int, $last: Int) {
   repository(name: $name, owner: $owner) {

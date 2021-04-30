@@ -1,7 +1,13 @@
 import { useTheme } from "styled-components";
 import { IssueState } from "src/generated/graphql";
 import { AuthorType } from "src/reducers/types";
-import { Text, TextType, LoadingOverlay, CommentViewer } from "src/components";
+import {
+  Text,
+  TextType,
+  LoadingOverlay,
+  CommentViewer,
+  CommentEditor,
+} from "src/components";
 import { timeSince } from "src/utils/time";
 import { CircleWarning, CircleError } from "src/assets/icons";
 import { CommentType } from "src/reducers/types";
@@ -16,6 +22,7 @@ interface Props {
   comments: CommentType[];
   loading: boolean;
   error?: string;
+  currentUserAvatar: string;
 }
 
 const DetailView: React.FC<Props> = ({
@@ -27,6 +34,7 @@ const DetailView: React.FC<Props> = ({
   comments,
   loading,
   error,
+  currentUserAvatar,
 }) => {
   const { palette } = useTheme();
   const isOpen = status === IssueState.Open;
@@ -53,7 +61,7 @@ const DetailView: React.FC<Props> = ({
 
   return (
     <>
-      <SC.BackButton to="/">Back</SC.BackButton>
+      <SC.BackButton to="/">❮ Back</SC.BackButton>
       <SC.Container>
         {error && <SC.Error>Error: {error}</SC.Error>}
         <LoadingOverlay isLoading={loading} />
@@ -74,6 +82,7 @@ const DetailView: React.FC<Props> = ({
                 <hr />
               </>
             ))}
+            <CommentEditor avatarUrl={currentUserAvatar} />
           </>
         )}
       </SC.Container>

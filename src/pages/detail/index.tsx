@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useIssueDetailQuery } from "src/generated/graphql";
+import { useIssueDetailQuery, useUserQuery } from "src/generated/graphql";
 import { AuthorType, RootState, CommentType } from "src/reducers/types";
 import { Layout, DetailView } from "src/components";
 
@@ -13,6 +13,7 @@ type Props = {
 const Detail: FC<Props> = ({ owner, name }) => {
   const { id } = useParams<{ id: string }>();
 
+  const { data: userData } = useUserQuery();
   const { data, loading, error } = useIssueDetailQuery({
     variables: {
       owner,
@@ -37,6 +38,7 @@ const Detail: FC<Props> = ({ owner, name }) => {
         comments={comments}
         loading={loading}
         error={!cleanData ? error?.message : undefined}
+        currentUserAvatar={userData?.viewer?.avatarUrl}
       />
     </Layout>
   );

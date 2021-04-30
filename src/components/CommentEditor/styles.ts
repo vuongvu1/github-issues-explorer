@@ -17,7 +17,6 @@ const SC = {
   CommentWrapper: styled.div(
     ({ theme }) => css`
       flex-grow: 1;
-      border: 1px solid ${theme.palette.dark};
       border-radius: ${theme.borderRadius};
       position: relative;
 
@@ -36,16 +35,8 @@ const SC = {
       }
     `
   ),
-  CommentHeader: styled.div(
-    ({ theme }) => css`
-      background-color: ${theme.palette.neutral};
-      padding: ${theme.spacing.sm} ${theme.spacing.md};
-    `
-  ),
   CommentBody: styled.div(
     ({ theme }) => css`
-      padding: ${theme.spacing.md};
-
       p {
         margin: 0;
         margin-bottom: ${theme.spacing.sm};
@@ -57,6 +48,23 @@ const SC = {
 
       a {
         text-decoration: none;
+      }
+    `
+  ),
+  CommentButton: styled.button(
+    ({ theme }) => css`
+      float: right;
+      margin: ${theme.spacing.sm};
+      padding: ${theme.spacing.sm} ${theme.spacing.md};
+      background-color: ${theme.palette.success};
+      color: ${theme.palette.white};
+      border-radius: ${theme.borderRadius};
+      font-weight: ${theme.fontWeight.md};
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.9;
       }
     `
   ),
