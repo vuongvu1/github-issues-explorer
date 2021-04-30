@@ -4,13 +4,26 @@ query Issue(
   $status: [IssueState!]
   $orderBy: IssueOrderField!
   $orderDir: OrderDirection!
+  $after: String
+  $before: String
+  $first: Int
+  $last: Int
 ) {
   repository(name: $name, owner: $owner) {
     issues(
-      first: 10
+      first: $first
+      last: $last
       filterBy: { states: $status }
       orderBy: { field: $orderBy, direction: $orderDir }
+      after: $after
+      before: $before
     ) {
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
+      }
       totalCount
       edges {
         node {

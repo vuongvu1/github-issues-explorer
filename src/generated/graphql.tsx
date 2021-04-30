@@ -19670,6 +19670,10 @@ export type IssueQueryVariables = Exact<{
   status?: Maybe<Array<IssueState> | IssueState>;
   orderBy: IssueOrderField;
   orderDir: OrderDirection;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
 }>;
 
 
@@ -19680,7 +19684,10 @@ export type IssueQuery = (
     & { issues: (
       { __typename?: 'IssueConnection' }
       & Pick<IssueConnection, 'totalCount'>
-      & { edges?: Maybe<Array<Maybe<(
+      & { pageInfo: (
+        { __typename?: 'PageInfo' }
+        & Pick<PageInfo, 'endCursor' | 'hasNextPage' | 'hasPreviousPage' | 'startCursor'>
+      ), edges?: Maybe<Array<Maybe<(
         { __typename?: 'IssueEdge' }
         & { node?: Maybe<(
           { __typename?: 'Issue' }
@@ -19729,13 +19736,22 @@ export type IssueCountQuery = (
 
 
 export const IssueDocument = gql`
-    query Issue($name: String!, $owner: String!, $status: [IssueState!], $orderBy: IssueOrderField!, $orderDir: OrderDirection!) {
+    query Issue($name: String!, $owner: String!, $status: [IssueState!], $orderBy: IssueOrderField!, $orderDir: OrderDirection!, $after: String, $before: String, $first: Int, $last: Int) {
   repository(name: $name, owner: $owner) {
     issues(
-      first: 10
+      first: $first
+      last: $last
       filterBy: {states: $status}
       orderBy: {field: $orderBy, direction: $orderDir}
+      after: $after
+      before: $before
     ) {
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
+      }
       totalCount
       edges {
         node {
@@ -19773,6 +19789,10 @@ export const IssueDocument = gql`
  *      status: // value for 'status'
  *      orderBy: // value for 'orderBy'
  *      orderDir: // value for 'orderDir'
+ *      after: // value for 'after'
+ *      before: // value for 'before'
+ *      first: // value for 'first'
+ *      last: // value for 'last'
  *   },
  * });
  */

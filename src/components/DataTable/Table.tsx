@@ -3,7 +3,7 @@ import { useTheme } from "styled-components";
 import { Link } from "react-router-dom";
 import { IssueState } from "src/generated/graphql";
 import { Spinner } from "src/assets/icons";
-import { IssueType } from "src/utils/types";
+import { IssueType } from "src/reducers/repoSlice";
 import { timeSince } from "src/utils/time";
 import {
   CircleWarning as CircleWarningIcon,
@@ -75,7 +75,7 @@ const Table: React.FC<Props> = ({
             <Link to={`/issue/${number}`}>{title}</Link>
             <div>
               #{number} opened {timeSince(new Date(createdAt))} ago by{" "}
-              {author.login}
+              {author?.login || "Unknown"}
             </div>
           </div>
           <Link to={`/issue/${number}`}>

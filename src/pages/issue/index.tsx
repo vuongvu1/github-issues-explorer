@@ -4,60 +4,56 @@ import {
   useIssueQuery,
   useIssueCountQuery,
   IssueState,
-  IssueOrderField,
-  OrderDirection,
 } from "src/generated/graphql";
 import { RootState } from "src/reducers";
-import { setFilter as setFilterAction } from "src/reducers/repoSlice";
+import {
+  IssueType,
+  SearchParamsType,
+  setFilter as setFilterAction,
+  setCursor as setCursorAction,
+} from "src/reducers/repoSlice";
 import { DataTable, Layout } from "src/components";
-import { IssueType } from "src/utils/types";
 
 type Props = {
-  name?: string;
-  owner?: string;
-  filter: IssueState;
   setFilter: (filter: IssueState) => void;
+  setCursor: ({ before, after }: { before?: string; after?: string }) => void;
+  searchParams: SearchParamsType;
 };
 
-const Issue: FC<Props> = ({
-  name = "reactjs.org",
-  owner = "reactjs",
-  filter,
-  setFilter,
-}) => {
-  const orderBy = IssueOrderField.CreatedAt;
-  const orderDir = OrderDirection.Desc;
-
+const Issue: FC<Props> = ({ setFilter, setCursor, searchParams }) => {
   const { data: countData } = useIssueCountQuery({
-    variables: { name, owner },
+    variables: { name: searchParams.name, owner: searchParams.owner },
   });
 
   const { data: issueData, loading, error } = useIssueQuery({
-    variables: {
-      name: name || "reactjs.org",
-      owner: owner || "reactjs",
-      status: filter,
-      orderBy,
-      orderDir,
-    },
+    variables: searchParams,
   });
 
+  const totalCount = countData?.repository?.issues?.totalCount;
+  const issueCount = issueData?.repository?.issues?.totalCount;
   const cleanData = issueData?.repository?.issues?.edges?.map(
     (edge) => edge?.node
   ) as IssueType[];
-  const issueCount = issueData?.repository?.issues?.totalCount;
-  const totalCount = countData?.repository?.issues?.totalCount;
+  const { endCursor, hasNextPage, hasPreviousPage, startCursor } =
+    issueData?.repository?.issues?.pageInfo || {};
+
+  const goNextPage = () => setCursor({ after: endCursor || undefined });
+  const goPreviousPage = () => setCursor({ before: startCursor || undefined });
 
   return (
-    <Layout title="reactjs / reactjs.org - Issues">
+    <Layout title={`${searchParams.owner} / ${searchParams.name} - Issues`}>
       <DataTable
         data={cleanData || []}
-        filter={filter}
+        filter={searchParams.status}
         setFilter={setFilter}
         loading={loading}
         issueCount={issueCount || 0}
         totalCount={totalCount || 0}
         error={!issueCount ? error?.message : undefined}
+        hasNextPage={hasNextPage}
+        goNextPage={goNextPage}
+        hasPreviousPage={hasPreviousPage}
+        goPreviousPage={goPreviousPage}
       />
     </Layout>
   );
@@ -65,12 +61,11 @@ const Issue: FC<Props> = ({
 
 const mapDispatchToProps = {
   setFilter: setFilterAction,
+  setCursor: setCursorAction,
 };
 
 const mapStateToProps = ({ repoSlice }: RootState) => ({
-  name: repoSlice.name,
-  owner: repoSlice.owner,
-  filter: repoSlice.filter,
+  searchParams: repoSlice.searchParams,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Issue);

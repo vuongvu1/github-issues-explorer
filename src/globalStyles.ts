@@ -49,10 +49,6 @@ export const mediaQueries = (key: "sm" | "md" | "lg") => {
 };
 
 const GlobalStyle = createGlobalStyle`
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
     margin: 0;
     background-color: ${theme.palette.neutral};
