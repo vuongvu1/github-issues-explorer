@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { useTheme } from "styled-components";
 import { IssueState } from "src/generated/graphql";
 import { AuthorType } from "src/reducers/types";
@@ -72,15 +73,14 @@ const DetailView: React.FC<Props> = ({
             <CommentViewer author={author} body={body} createdAt={createdAt} />
             <hr />
             {comments.map((comment) => (
-              <>
+              <Fragment key={comment.id}>
                 <CommentViewer
-                  key={comment.id}
                   author={comment.author}
                   body={comment.body}
                   createdAt={comment.createdAt}
                 />
                 <hr />
-              </>
+              </Fragment>
             ))}
             <CommentEditor avatarUrl={currentUserAvatar} />
           </>

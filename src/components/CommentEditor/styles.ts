@@ -54,7 +54,7 @@ const SC = {
   CommentButton: styled.button(
     ({ theme }) => css`
       float: right;
-      margin: ${theme.spacing.sm};
+      margin: ${theme.spacing.sm} 0;
       padding: ${theme.spacing.sm} ${theme.spacing.md};
       background-color: ${theme.palette.success};
       color: ${theme.palette.white};

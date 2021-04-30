@@ -51,8 +51,9 @@ const SC = {
         margin-bottom: ${theme.spacing.sm};
       }
 
-      img {
+      * {
         max-width: 100%;
+        word-break: break-word;
       }
 
       a {

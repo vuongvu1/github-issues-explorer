@@ -23,7 +23,10 @@ const CommentViewer: FC<Props> = ({ body, createdAt, author }) => {
           {timeSince(new Date(createdAt))} ago
         </SC.CommentHeader>
         <SC.CommentBody
-          dangerouslySetInnerHTML={{ __html: converter.makeHtml(body) }}
+          dangerouslySetInnerHTML={{
+            __html:
+              converter.makeHtml(body) || "<i>No description provided.</i>",
+          }}
         />
       </SC.CommentWrapper>
     </SC.Container>
