@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 const SC = {
   Container: styled.div`
     width: 100%;
+    max-width: 100%;
     min-height: 90vh;
     display: flex;
     flex-direction: column;

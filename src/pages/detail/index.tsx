@@ -29,11 +29,11 @@ const Detail: FC<Props> = ({ owner, name }) => {
   return (
     <Layout title={`${owner} / ${name} - Issues #${id}`}>
       <DetailView
-        title={cleanData?.title}
+        title={cleanData?.title || ""}
         author={cleanData?.author as AuthorType}
         createdAt={cleanData?.createdAt}
-        status={cleanData?.state}
-        body={cleanData?.body}
+        status={cleanData?.state || ""}
+        body={cleanData?.body || ""}
         comments={comments}
         loading={loading}
         error={!cleanData ? error?.message : undefined}

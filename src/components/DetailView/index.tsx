@@ -1,19 +1,19 @@
 import { useTheme } from "styled-components";
 import { IssueState } from "src/generated/graphql";
 import { AuthorType } from "src/reducers/types";
-import { Text, TextType, LoadingOverlay } from "src/components";
+import { Text, TextType, LoadingOverlay, CommentViewer } from "src/components";
 import { timeSince } from "src/utils/time";
 import { CircleWarning, CircleError } from "src/assets/icons";
 import { CommentType } from "src/reducers/types";
 import SC from "./styles";
 
 interface Props {
-  title?: string;
-  author?: AuthorType;
-  createdAt?: string;
-  status?: string;
-  body?: string;
-  comments?: CommentType[];
+  title: string;
+  author: AuthorType;
+  createdAt: string;
+  status: string;
+  body: string;
+  comments: CommentType[];
   loading: boolean;
   error?: string;
 }
@@ -60,7 +60,20 @@ const DetailView: React.FC<Props> = ({
         {!error && !loading && (
           <>
             {IssueInfo}
-            {body}
+            <hr />
+            <CommentViewer author={author} body={body} createdAt={createdAt} />
+            <hr />
+            {comments.map((comment) => (
+              <>
+                <CommentViewer
+                  key={comment.id}
+                  author={comment.author}
+                  body={comment.body}
+                  createdAt={comment.createdAt}
+                />
+                <hr />
+              </>
+            ))}
           </>
         )}
       </SC.Container>

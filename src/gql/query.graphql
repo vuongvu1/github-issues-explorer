@@ -65,6 +65,7 @@ query IssueDetail($name: String!, $owner: String!, $number: Int!) {
       comments(last: 50) {
         edges {
           node {
+            id
             body
             createdAt
             author {

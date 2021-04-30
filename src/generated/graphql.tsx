@@ -19769,7 +19769,7 @@ export type IssueDetailQuery = (
           { __typename?: 'IssueCommentEdge' }
           & { node?: Maybe<(
             { __typename?: 'IssueComment' }
-            & Pick<IssueComment, 'body' | 'createdAt'>
+            & Pick<IssueComment, 'id' | 'body' | 'createdAt'>
             & { author?: Maybe<(
               { __typename?: 'Bot' }
               & Pick<Bot, 'avatarUrl' | 'login'>
@@ -19919,6 +19919,7 @@ export const IssueDetailDocument = gql`
       comments(last: 50) {
         edges {
           node {
+            id
             body
             createdAt
             author {

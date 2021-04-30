@@ -38,6 +38,7 @@ export type AuthorType = {
 };
 
 export type CommentType = {
+  id?: string;
   body: string;
   createdAt: string;
   author: AuthorType;
