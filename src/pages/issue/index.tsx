@@ -5,10 +5,8 @@ import {
   useIssueCountQuery,
   IssueState,
 } from "src/generated/graphql";
-import { RootState } from "src/reducers";
+import { RootState, IssueType, SearchParamsType } from "src/reducers/types";
 import {
-  IssueType,
-  SearchParamsType,
   setFilter as setFilterAction,
   setCursor as setCursorAction,
 } from "src/reducers/repoSlice";

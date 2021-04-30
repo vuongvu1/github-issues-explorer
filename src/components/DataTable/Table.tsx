@@ -3,7 +3,7 @@ import { useTheme } from "styled-components";
 import { Link } from "react-router-dom";
 import { IssueState } from "src/generated/graphql";
 import { Spinner } from "src/assets/icons";
-import { IssueType } from "src/reducers/repoSlice";
+import { IssueType } from "src/reducers/types";
 import { timeSince } from "src/utils/time";
 import {
   CircleWarning as CircleWarningIcon,

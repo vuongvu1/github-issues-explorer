@@ -26,7 +26,7 @@ const SC = {
       css`
         margin: 0;
         font-weight: normal;
-        font-size: ${theme.fontSize.md};
+        font-size: ${theme.fontSize.sm};
       `}
     `
   ),

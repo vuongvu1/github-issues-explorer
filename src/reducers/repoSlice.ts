@@ -4,33 +4,9 @@ import {
   IssueOrderField,
   OrderDirection,
 } from "src/generated/graphql";
+import { SearchParamsType } from "./types";
 
 const DEFAULT_PAGE_SIZE = 10;
-
-export type SearchParamsType = {
-  name: string;
-  owner: string;
-  status: IssueState;
-  orderBy: IssueOrderField;
-  orderDir: OrderDirection;
-  before?: string;
-  after?: string;
-  first?: number;
-  last?: number;
-};
-
-export type IssueType = {
-  id: string;
-  title: string;
-  number: number;
-  createdAt: string;
-  author: {
-    login: string;
-  };
-  comments: {
-    totalCount: number;
-  };
-};
 
 const repoSlice = createSlice({
   name: "repo",

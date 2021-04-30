@@ -33,6 +33,26 @@ const SC = {
       }
     `
   ),
+  StatusLabel: styled.span<{ isOpen: boolean }>(
+    ({ theme, isOpen }) => css`
+      color: ${theme.palette.white};
+      padding: 4px ${theme.spacing.sm};
+      margin-top: ${theme.spacing.sm};
+      margin-right: ${theme.spacing.sm};
+      border-radius: 2em;
+      font-weight: ${theme.fontWeight.md};
+      display: inline-flex;
+      align-items: center;
+
+      ${isOpen
+        ? css`
+            background-color: ${theme.palette.success};
+          `
+        : css`
+            background-color: ${theme.palette.error};
+          `};
+    `
+  ),
 };
 
 export default SC;

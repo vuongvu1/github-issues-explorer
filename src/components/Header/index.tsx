@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { connect } from "react-redux";
 import { useTheme } from "styled-components";
-import { RootState } from "src/reducers";
+import { RootState } from "src/reducers/types";
 import { setRepo as setRepoAction } from "src/reducers/repoSlice";
 import { SearchBar, Text, TextType } from "..";
 import SC from "./styles";

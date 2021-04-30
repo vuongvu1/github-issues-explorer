@@ -19734,6 +19734,65 @@ export type IssueCountQuery = (
   )> }
 );
 
+export type IssueDetailQueryVariables = Exact<{
+  name: Scalars['String'];
+  owner: Scalars['String'];
+  number: Scalars['Int'];
+}>;
+
+
+export type IssueDetailQuery = (
+  { __typename?: 'Query' }
+  & { repository?: Maybe<(
+    { __typename?: 'Repository' }
+    & { issue?: Maybe<(
+      { __typename?: 'Issue' }
+      & Pick<Issue, 'title' | 'body' | 'createdAt' | 'state'>
+      & { author?: Maybe<(
+        { __typename?: 'Bot' }
+        & Pick<Bot, 'avatarUrl' | 'login'>
+      ) | (
+        { __typename?: 'EnterpriseUserAccount' }
+        & Pick<EnterpriseUserAccount, 'avatarUrl' | 'login'>
+      ) | (
+        { __typename?: 'Mannequin' }
+        & Pick<Mannequin, 'avatarUrl' | 'login'>
+      ) | (
+        { __typename?: 'Organization' }
+        & Pick<Organization, 'avatarUrl' | 'login'>
+      ) | (
+        { __typename?: 'User' }
+        & Pick<User, 'avatarUrl' | 'login'>
+      )>, comments: (
+        { __typename?: 'IssueCommentConnection' }
+        & { edges?: Maybe<Array<Maybe<(
+          { __typename?: 'IssueCommentEdge' }
+          & { node?: Maybe<(
+            { __typename?: 'IssueComment' }
+            & Pick<IssueComment, 'body' | 'createdAt'>
+            & { author?: Maybe<(
+              { __typename?: 'Bot' }
+              & Pick<Bot, 'avatarUrl' | 'login'>
+            ) | (
+              { __typename?: 'EnterpriseUserAccount' }
+              & Pick<EnterpriseUserAccount, 'avatarUrl' | 'login'>
+            ) | (
+              { __typename?: 'Mannequin' }
+              & Pick<Mannequin, 'avatarUrl' | 'login'>
+            ) | (
+              { __typename?: 'Organization' }
+              & Pick<Organization, 'avatarUrl' | 'login'>
+            ) | (
+              { __typename?: 'User' }
+              & Pick<User, 'avatarUrl' | 'login'>
+            )> }
+          )> }
+        )>>> }
+      ) }
+    )> }
+  )> }
+);
+
 
 export const IssueDocument = gql`
     query Issue($name: String!, $owner: String!, $status: [IssueState!], $orderBy: IssueOrderField!, $orderDir: OrderDirection!, $after: String, $before: String, $first: Int, $last: Int) {
@@ -19845,3 +19904,61 @@ export function useIssueCountLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type IssueCountQueryHookResult = ReturnType<typeof useIssueCountQuery>;
 export type IssueCountLazyQueryHookResult = ReturnType<typeof useIssueCountLazyQuery>;
 export type IssueCountQueryResult = Apollo.QueryResult<IssueCountQuery, IssueCountQueryVariables>;
+export const IssueDetailDocument = gql`
+    query IssueDetail($name: String!, $owner: String!, $number: Int!) {
+  repository(name: $name, owner: $owner) {
+    issue(number: $number) {
+      title
+      author {
+        avatarUrl
+        login
+      }
+      body
+      createdAt
+      state
+      comments(last: 50) {
+        edges {
+          node {
+            body
+            createdAt
+            author {
+              avatarUrl
+              login
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useIssueDetailQuery__
+ *
+ * To run a query within a React component, call `useIssueDetailQuery` and pass it any options that fit your needs.
+ * When your component renders, `useIssueDetailQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useIssueDetailQuery({
+ *   variables: {
+ *      name: // value for 'name'
+ *      owner: // value for 'owner'
+ *      number: // value for 'number'
+ *   },
+ * });
+ */
+export function useIssueDetailQuery(baseOptions: Apollo.QueryHookOptions<IssueDetailQuery, IssueDetailQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<IssueDetailQuery, IssueDetailQueryVariables>(IssueDetailDocument, options);
+      }
+export function useIssueDetailLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<IssueDetailQuery, IssueDetailQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<IssueDetailQuery, IssueDetailQueryVariables>(IssueDetailDocument, options);
+        }
+export type IssueDetailQueryHookResult = ReturnType<typeof useIssueDetailQuery>;
+export type IssueDetailLazyQueryHookResult = ReturnType<typeof useIssueDetailLazyQuery>;
+export type IssueDetailQueryResult = Apollo.QueryResult<IssueDetailQuery, IssueDetailQueryVariables>;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { IssueState } from "src/generated/graphql";
-import { IssueType } from "src/reducers/repoSlice";
+import { IssueType } from "src/reducers/types";
 import Pagination from "../Pagination";
 import Table from "./Table";
 import SC from "./styles";
