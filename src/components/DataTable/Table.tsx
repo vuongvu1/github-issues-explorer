@@ -34,7 +34,8 @@ const Table: React.FC<Props> = ({
 }) => {
   const { palette } = useTheme();
   const isFilterOpen = filter === IssueState.Open;
-  const nonSelectedIssueCount = issueCount ? totalCount - issueCount : 0;
+  const nonSelectedIssueCount =
+    issueCount && totalCount ? totalCount - issueCount : 0;
 
   return (
     <SC.TableContainer>
