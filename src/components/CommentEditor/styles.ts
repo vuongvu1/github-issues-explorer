@@ -51,8 +51,8 @@ const SC = {
       }
     `
   ),
-  CommentButton: styled.button(
-    ({ theme }) => css`
+  CommentButton: styled.button<{ disabled: boolean }>(
+    ({ theme, disabled }) => css`
       float: right;
       margin: ${theme.spacing.sm} 0;
       padding: ${theme.spacing.sm} ${theme.spacing.md};
@@ -66,6 +66,21 @@ const SC = {
       &:hover {
         opacity: 0.9;
       }
+
+      ${disabled &&
+      css`
+        opacity: 0.6;
+        cursor: not-allowed;
+        &:hover {
+          opacity: 0.6;
+        }
+      `}
+    `
+  ),
+  Loading: styled.div(
+    ({ theme }) => css`
+      float: right;
+      padding: ${theme.spacing.sm} ${theme.spacing.md};
     `
   ),
 };

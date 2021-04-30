@@ -22,8 +22,10 @@ interface Props {
   body: string;
   comments: CommentType[];
   loading: boolean;
+  isCommenting: boolean;
   error?: string;
   currentUserAvatar: string;
+  handleAddComment: (text: string) => void;
 }
 
 const DetailView: React.FC<Props> = ({
@@ -34,8 +36,10 @@ const DetailView: React.FC<Props> = ({
   body,
   comments,
   loading,
+  isCommenting,
   error,
   currentUserAvatar,
+  handleAddComment,
 }) => {
   const { palette } = useTheme();
   const isOpen = status === IssueState.Open;
@@ -82,7 +86,11 @@ const DetailView: React.FC<Props> = ({
                 <hr />
               </Fragment>
             ))}
-            <CommentEditor avatarUrl={currentUserAvatar} />
+            <CommentEditor
+              avatarUrl={currentUserAvatar}
+              handleAddComment={handleAddComment}
+              isCommenting={isCommenting}
+            />
           </>
         )}
       </SC.Container>

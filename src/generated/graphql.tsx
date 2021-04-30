@@ -19664,6 +19664,593 @@ export type ViewerHovercardContext = HovercardContext & {
 };
 
 
+export type AddCommentMutationVariables = Exact<{
+  issueId: Scalars['ID'];
+  body: Scalars['String'];
+}>;
+
+
+export type AddCommentMutation = (
+  { __typename?: 'Mutation' }
+  & { addComment?: Maybe<(
+    { __typename?: 'AddCommentPayload' }
+    & { subject?: Maybe<(
+      { __typename?: 'AddedToProjectEvent' }
+      & Pick<AddedToProjectEvent, 'id'>
+    ) | (
+      { __typename?: 'App' }
+      & Pick<App, 'id'>
+    ) | (
+      { __typename?: 'AssignedEvent' }
+      & Pick<AssignedEvent, 'id'>
+    ) | (
+      { __typename?: 'AutoMergeDisabledEvent' }
+      & Pick<AutoMergeDisabledEvent, 'id'>
+    ) | (
+      { __typename?: 'AutoMergeEnabledEvent' }
+      & Pick<AutoMergeEnabledEvent, 'id'>
+    ) | (
+      { __typename?: 'AutoRebaseEnabledEvent' }
+      & Pick<AutoRebaseEnabledEvent, 'id'>
+    ) | (
+      { __typename?: 'AutoSquashEnabledEvent' }
+      & Pick<AutoSquashEnabledEvent, 'id'>
+    ) | (
+      { __typename?: 'AutomaticBaseChangeFailedEvent' }
+      & Pick<AutomaticBaseChangeFailedEvent, 'id'>
+    ) | (
+      { __typename?: 'AutomaticBaseChangeSucceededEvent' }
+      & Pick<AutomaticBaseChangeSucceededEvent, 'id'>
+    ) | (
+      { __typename?: 'BaseRefChangedEvent' }
+      & Pick<BaseRefChangedEvent, 'id'>
+    ) | (
+      { __typename?: 'BaseRefDeletedEvent' }
+      & Pick<BaseRefDeletedEvent, 'id'>
+    ) | (
+      { __typename?: 'BaseRefForcePushedEvent' }
+      & Pick<BaseRefForcePushedEvent, 'id'>
+    ) | (
+      { __typename?: 'Blob' }
+      & Pick<Blob, 'id'>
+    ) | (
+      { __typename?: 'Bot' }
+      & Pick<Bot, 'id'>
+    ) | (
+      { __typename?: 'BranchProtectionRule' }
+      & Pick<BranchProtectionRule, 'id'>
+    ) | (
+      { __typename?: 'CWE' }
+      & Pick<Cwe, 'id'>
+    ) | (
+      { __typename?: 'CheckRun' }
+      & Pick<CheckRun, 'id'>
+    ) | (
+      { __typename?: 'CheckSuite' }
+      & Pick<CheckSuite, 'id'>
+    ) | (
+      { __typename?: 'ClosedEvent' }
+      & Pick<ClosedEvent, 'id'>
+    ) | (
+      { __typename?: 'CodeOfConduct' }
+      & Pick<CodeOfConduct, 'id'>
+    ) | (
+      { __typename?: 'CommentDeletedEvent' }
+      & Pick<CommentDeletedEvent, 'id'>
+    ) | (
+      { __typename?: 'Commit' }
+      & Pick<Commit, 'id'>
+    ) | (
+      { __typename?: 'CommitComment' }
+      & Pick<CommitComment, 'id'>
+    ) | (
+      { __typename?: 'CommitCommentThread' }
+      & Pick<CommitCommentThread, 'id'>
+    ) | (
+      { __typename?: 'ConnectedEvent' }
+      & Pick<ConnectedEvent, 'id'>
+    ) | (
+      { __typename?: 'ConvertToDraftEvent' }
+      & Pick<ConvertToDraftEvent, 'id'>
+    ) | (
+      { __typename?: 'ConvertedNoteToIssueEvent' }
+      & Pick<ConvertedNoteToIssueEvent, 'id'>
+    ) | (
+      { __typename?: 'CrossReferencedEvent' }
+      & Pick<CrossReferencedEvent, 'id'>
+    ) | (
+      { __typename?: 'DemilestonedEvent' }
+      & Pick<DemilestonedEvent, 'id'>
+    ) | (
+      { __typename?: 'DeployKey' }
+      & Pick<DeployKey, 'id'>
+    ) | (
+      { __typename?: 'DeployedEvent' }
+      & Pick<DeployedEvent, 'id'>
+    ) | (
+      { __typename?: 'Deployment' }
+      & Pick<Deployment, 'id'>
+    ) | (
+      { __typename?: 'DeploymentEnvironmentChangedEvent' }
+      & Pick<DeploymentEnvironmentChangedEvent, 'id'>
+    ) | (
+      { __typename?: 'DeploymentStatus' }
+      & Pick<DeploymentStatus, 'id'>
+    ) | (
+      { __typename?: 'DisconnectedEvent' }
+      & Pick<DisconnectedEvent, 'id'>
+    ) | (
+      { __typename?: 'Enterprise' }
+      & Pick<Enterprise, 'id'>
+    ) | (
+      { __typename?: 'EnterpriseAdministratorInvitation' }
+      & Pick<EnterpriseAdministratorInvitation, 'id'>
+    ) | (
+      { __typename?: 'EnterpriseIdentityProvider' }
+      & Pick<EnterpriseIdentityProvider, 'id'>
+    ) | (
+      { __typename?: 'EnterpriseRepositoryInfo' }
+      & Pick<EnterpriseRepositoryInfo, 'id'>
+    ) | (
+      { __typename?: 'EnterpriseServerInstallation' }
+      & Pick<EnterpriseServerInstallation, 'id'>
+    ) | (
+      { __typename?: 'EnterpriseServerUserAccount' }
+      & Pick<EnterpriseServerUserAccount, 'id'>
+    ) | (
+      { __typename?: 'EnterpriseServerUserAccountEmail' }
+      & Pick<EnterpriseServerUserAccountEmail, 'id'>
+    ) | (
+      { __typename?: 'EnterpriseServerUserAccountsUpload' }
+      & Pick<EnterpriseServerUserAccountsUpload, 'id'>
+    ) | (
+      { __typename?: 'EnterpriseUserAccount' }
+      & Pick<EnterpriseUserAccount, 'id'>
+    ) | (
+      { __typename?: 'ExternalIdentity' }
+      & Pick<ExternalIdentity, 'id'>
+    ) | (
+      { __typename?: 'Gist' }
+      & Pick<Gist, 'id'>
+    ) | (
+      { __typename?: 'GistComment' }
+      & Pick<GistComment, 'id'>
+    ) | (
+      { __typename?: 'HeadRefDeletedEvent' }
+      & Pick<HeadRefDeletedEvent, 'id'>
+    ) | (
+      { __typename?: 'HeadRefForcePushedEvent' }
+      & Pick<HeadRefForcePushedEvent, 'id'>
+    ) | (
+      { __typename?: 'HeadRefRestoredEvent' }
+      & Pick<HeadRefRestoredEvent, 'id'>
+    ) | (
+      { __typename?: 'IpAllowListEntry' }
+      & Pick<IpAllowListEntry, 'id'>
+    ) | (
+      { __typename?: 'Issue' }
+      & Pick<Issue, 'id'>
+    ) | (
+      { __typename?: 'IssueComment' }
+      & Pick<IssueComment, 'id'>
+    ) | (
+      { __typename?: 'Label' }
+      & Pick<Label, 'id'>
+    ) | (
+      { __typename?: 'LabeledEvent' }
+      & Pick<LabeledEvent, 'id'>
+    ) | (
+      { __typename?: 'Language' }
+      & Pick<Language, 'id'>
+    ) | (
+      { __typename?: 'License' }
+      & Pick<License, 'id'>
+    ) | (
+      { __typename?: 'LockedEvent' }
+      & Pick<LockedEvent, 'id'>
+    ) | (
+      { __typename?: 'Mannequin' }
+      & Pick<Mannequin, 'id'>
+    ) | (
+      { __typename?: 'MarkedAsDuplicateEvent' }
+      & Pick<MarkedAsDuplicateEvent, 'id'>
+    ) | (
+      { __typename?: 'MarketplaceCategory' }
+      & Pick<MarketplaceCategory, 'id'>
+    ) | (
+      { __typename?: 'MarketplaceListing' }
+      & Pick<MarketplaceListing, 'id'>
+    ) | (
+      { __typename?: 'MembersCanDeleteReposClearAuditEntry' }
+      & Pick<MembersCanDeleteReposClearAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'MembersCanDeleteReposDisableAuditEntry' }
+      & Pick<MembersCanDeleteReposDisableAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'MembersCanDeleteReposEnableAuditEntry' }
+      & Pick<MembersCanDeleteReposEnableAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'MentionedEvent' }
+      & Pick<MentionedEvent, 'id'>
+    ) | (
+      { __typename?: 'MergedEvent' }
+      & Pick<MergedEvent, 'id'>
+    ) | (
+      { __typename?: 'Milestone' }
+      & Pick<Milestone, 'id'>
+    ) | (
+      { __typename?: 'MilestonedEvent' }
+      & Pick<MilestonedEvent, 'id'>
+    ) | (
+      { __typename?: 'MovedColumnsInProjectEvent' }
+      & Pick<MovedColumnsInProjectEvent, 'id'>
+    ) | (
+      { __typename?: 'OauthApplicationCreateAuditEntry' }
+      & Pick<OauthApplicationCreateAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgAddBillingManagerAuditEntry' }
+      & Pick<OrgAddBillingManagerAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgAddMemberAuditEntry' }
+      & Pick<OrgAddMemberAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgBlockUserAuditEntry' }
+      & Pick<OrgBlockUserAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgConfigDisableCollaboratorsOnlyAuditEntry' }
+      & Pick<OrgConfigDisableCollaboratorsOnlyAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgConfigEnableCollaboratorsOnlyAuditEntry' }
+      & Pick<OrgConfigEnableCollaboratorsOnlyAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgCreateAuditEntry' }
+      & Pick<OrgCreateAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgDisableOauthAppRestrictionsAuditEntry' }
+      & Pick<OrgDisableOauthAppRestrictionsAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgDisableSamlAuditEntry' }
+      & Pick<OrgDisableSamlAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgDisableTwoFactorRequirementAuditEntry' }
+      & Pick<OrgDisableTwoFactorRequirementAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgEnableOauthAppRestrictionsAuditEntry' }
+      & Pick<OrgEnableOauthAppRestrictionsAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgEnableSamlAuditEntry' }
+      & Pick<OrgEnableSamlAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgEnableTwoFactorRequirementAuditEntry' }
+      & Pick<OrgEnableTwoFactorRequirementAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgInviteMemberAuditEntry' }
+      & Pick<OrgInviteMemberAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgInviteToBusinessAuditEntry' }
+      & Pick<OrgInviteToBusinessAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgOauthAppAccessApprovedAuditEntry' }
+      & Pick<OrgOauthAppAccessApprovedAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgOauthAppAccessDeniedAuditEntry' }
+      & Pick<OrgOauthAppAccessDeniedAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgOauthAppAccessRequestedAuditEntry' }
+      & Pick<OrgOauthAppAccessRequestedAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgRemoveBillingManagerAuditEntry' }
+      & Pick<OrgRemoveBillingManagerAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgRemoveMemberAuditEntry' }
+      & Pick<OrgRemoveMemberAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgRemoveOutsideCollaboratorAuditEntry' }
+      & Pick<OrgRemoveOutsideCollaboratorAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgRestoreMemberAuditEntry' }
+      & Pick<OrgRestoreMemberAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgUnblockUserAuditEntry' }
+      & Pick<OrgUnblockUserAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgUpdateDefaultRepositoryPermissionAuditEntry' }
+      & Pick<OrgUpdateDefaultRepositoryPermissionAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgUpdateMemberAuditEntry' }
+      & Pick<OrgUpdateMemberAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgUpdateMemberRepositoryCreationPermissionAuditEntry' }
+      & Pick<OrgUpdateMemberRepositoryCreationPermissionAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'OrgUpdateMemberRepositoryInvitationPermissionAuditEntry' }
+      & Pick<OrgUpdateMemberRepositoryInvitationPermissionAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'Organization' }
+      & Pick<Organization, 'id'>
+    ) | (
+      { __typename?: 'OrganizationIdentityProvider' }
+      & Pick<OrganizationIdentityProvider, 'id'>
+    ) | (
+      { __typename?: 'OrganizationInvitation' }
+      & Pick<OrganizationInvitation, 'id'>
+    ) | (
+      { __typename?: 'Package' }
+      & Pick<Package, 'id'>
+    ) | (
+      { __typename?: 'PackageFile' }
+      & Pick<PackageFile, 'id'>
+    ) | (
+      { __typename?: 'PackageTag' }
+      & Pick<PackageTag, 'id'>
+    ) | (
+      { __typename?: 'PackageVersion' }
+      & Pick<PackageVersion, 'id'>
+    ) | (
+      { __typename?: 'PinnedEvent' }
+      & Pick<PinnedEvent, 'id'>
+    ) | (
+      { __typename?: 'PinnedIssue' }
+      & Pick<PinnedIssue, 'id'>
+    ) | (
+      { __typename?: 'PrivateRepositoryForkingDisableAuditEntry' }
+      & Pick<PrivateRepositoryForkingDisableAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'PrivateRepositoryForkingEnableAuditEntry' }
+      & Pick<PrivateRepositoryForkingEnableAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'Project' }
+      & Pick<Project, 'id'>
+    ) | (
+      { __typename?: 'ProjectCard' }
+      & Pick<ProjectCard, 'id'>
+    ) | (
+      { __typename?: 'ProjectColumn' }
+      & Pick<ProjectColumn, 'id'>
+    ) | (
+      { __typename?: 'PublicKey' }
+      & Pick<PublicKey, 'id'>
+    ) | (
+      { __typename?: 'PullRequest' }
+      & Pick<PullRequest, 'id'>
+    ) | (
+      { __typename?: 'PullRequestCommit' }
+      & Pick<PullRequestCommit, 'id'>
+    ) | (
+      { __typename?: 'PullRequestCommitCommentThread' }
+      & Pick<PullRequestCommitCommentThread, 'id'>
+    ) | (
+      { __typename?: 'PullRequestReview' }
+      & Pick<PullRequestReview, 'id'>
+    ) | (
+      { __typename?: 'PullRequestReviewComment' }
+      & Pick<PullRequestReviewComment, 'id'>
+    ) | (
+      { __typename?: 'PullRequestReviewThread' }
+      & Pick<PullRequestReviewThread, 'id'>
+    ) | (
+      { __typename?: 'Push' }
+      & Pick<Push, 'id'>
+    ) | (
+      { __typename?: 'PushAllowance' }
+      & Pick<PushAllowance, 'id'>
+    ) | (
+      { __typename?: 'Reaction' }
+      & Pick<Reaction, 'id'>
+    ) | (
+      { __typename?: 'ReadyForReviewEvent' }
+      & Pick<ReadyForReviewEvent, 'id'>
+    ) | (
+      { __typename?: 'Ref' }
+      & Pick<Ref, 'id'>
+    ) | (
+      { __typename?: 'ReferencedEvent' }
+      & Pick<ReferencedEvent, 'id'>
+    ) | (
+      { __typename?: 'Release' }
+      & Pick<Release, 'id'>
+    ) | (
+      { __typename?: 'ReleaseAsset' }
+      & Pick<ReleaseAsset, 'id'>
+    ) | (
+      { __typename?: 'RemovedFromProjectEvent' }
+      & Pick<RemovedFromProjectEvent, 'id'>
+    ) | (
+      { __typename?: 'RenamedTitleEvent' }
+      & Pick<RenamedTitleEvent, 'id'>
+    ) | (
+      { __typename?: 'ReopenedEvent' }
+      & Pick<ReopenedEvent, 'id'>
+    ) | (
+      { __typename?: 'RepoAccessAuditEntry' }
+      & Pick<RepoAccessAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoAddMemberAuditEntry' }
+      & Pick<RepoAddMemberAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoAddTopicAuditEntry' }
+      & Pick<RepoAddTopicAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoArchivedAuditEntry' }
+      & Pick<RepoArchivedAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoChangeMergeSettingAuditEntry' }
+      & Pick<RepoChangeMergeSettingAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoConfigDisableAnonymousGitAccessAuditEntry' }
+      & Pick<RepoConfigDisableAnonymousGitAccessAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoConfigDisableCollaboratorsOnlyAuditEntry' }
+      & Pick<RepoConfigDisableCollaboratorsOnlyAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoConfigDisableContributorsOnlyAuditEntry' }
+      & Pick<RepoConfigDisableContributorsOnlyAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoConfigDisableSockpuppetDisallowedAuditEntry' }
+      & Pick<RepoConfigDisableSockpuppetDisallowedAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoConfigEnableAnonymousGitAccessAuditEntry' }
+      & Pick<RepoConfigEnableAnonymousGitAccessAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoConfigEnableCollaboratorsOnlyAuditEntry' }
+      & Pick<RepoConfigEnableCollaboratorsOnlyAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoConfigEnableContributorsOnlyAuditEntry' }
+      & Pick<RepoConfigEnableContributorsOnlyAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoConfigEnableSockpuppetDisallowedAuditEntry' }
+      & Pick<RepoConfigEnableSockpuppetDisallowedAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoConfigLockAnonymousGitAccessAuditEntry' }
+      & Pick<RepoConfigLockAnonymousGitAccessAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoConfigUnlockAnonymousGitAccessAuditEntry' }
+      & Pick<RepoConfigUnlockAnonymousGitAccessAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoCreateAuditEntry' }
+      & Pick<RepoCreateAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoDestroyAuditEntry' }
+      & Pick<RepoDestroyAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoRemoveMemberAuditEntry' }
+      & Pick<RepoRemoveMemberAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepoRemoveTopicAuditEntry' }
+      & Pick<RepoRemoveTopicAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'Repository' }
+      & Pick<Repository, 'id'>
+    ) | (
+      { __typename?: 'RepositoryInvitation' }
+      & Pick<RepositoryInvitation, 'id'>
+    ) | (
+      { __typename?: 'RepositoryTopic' }
+      & Pick<RepositoryTopic, 'id'>
+    ) | (
+      { __typename?: 'RepositoryVisibilityChangeDisableAuditEntry' }
+      & Pick<RepositoryVisibilityChangeDisableAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepositoryVisibilityChangeEnableAuditEntry' }
+      & Pick<RepositoryVisibilityChangeEnableAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'RepositoryVulnerabilityAlert' }
+      & Pick<RepositoryVulnerabilityAlert, 'id'>
+    ) | (
+      { __typename?: 'ReviewDismissalAllowance' }
+      & Pick<ReviewDismissalAllowance, 'id'>
+    ) | (
+      { __typename?: 'ReviewDismissedEvent' }
+      & Pick<ReviewDismissedEvent, 'id'>
+    ) | (
+      { __typename?: 'ReviewRequest' }
+      & Pick<ReviewRequest, 'id'>
+    ) | (
+      { __typename?: 'ReviewRequestRemovedEvent' }
+      & Pick<ReviewRequestRemovedEvent, 'id'>
+    ) | (
+      { __typename?: 'ReviewRequestedEvent' }
+      & Pick<ReviewRequestedEvent, 'id'>
+    ) | (
+      { __typename?: 'SavedReply' }
+      & Pick<SavedReply, 'id'>
+    ) | (
+      { __typename?: 'SecurityAdvisory' }
+      & Pick<SecurityAdvisory, 'id'>
+    ) | (
+      { __typename?: 'SponsorsListing' }
+      & Pick<SponsorsListing, 'id'>
+    ) | (
+      { __typename?: 'SponsorsTier' }
+      & Pick<SponsorsTier, 'id'>
+    ) | (
+      { __typename?: 'Sponsorship' }
+      & Pick<Sponsorship, 'id'>
+    ) | (
+      { __typename?: 'Status' }
+      & Pick<Status, 'id'>
+    ) | (
+      { __typename?: 'StatusCheckRollup' }
+      & Pick<StatusCheckRollup, 'id'>
+    ) | (
+      { __typename?: 'StatusContext' }
+      & Pick<StatusContext, 'id'>
+    ) | (
+      { __typename?: 'SubscribedEvent' }
+      & Pick<SubscribedEvent, 'id'>
+    ) | (
+      { __typename?: 'Tag' }
+      & Pick<Tag, 'id'>
+    ) | (
+      { __typename?: 'Team' }
+      & Pick<Team, 'id'>
+    ) | (
+      { __typename?: 'TeamAddMemberAuditEntry' }
+      & Pick<TeamAddMemberAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'TeamAddRepositoryAuditEntry' }
+      & Pick<TeamAddRepositoryAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'TeamChangeParentTeamAuditEntry' }
+      & Pick<TeamChangeParentTeamAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'TeamDiscussion' }
+      & Pick<TeamDiscussion, 'id'>
+    ) | (
+      { __typename?: 'TeamDiscussionComment' }
+      & Pick<TeamDiscussionComment, 'id'>
+    ) | (
+      { __typename?: 'TeamRemoveMemberAuditEntry' }
+      & Pick<TeamRemoveMemberAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'TeamRemoveRepositoryAuditEntry' }
+      & Pick<TeamRemoveRepositoryAuditEntry, 'id'>
+    ) | (
+      { __typename?: 'Topic' }
+      & Pick<Topic, 'id'>
+    ) | (
+      { __typename?: 'TransferredEvent' }
+      & Pick<TransferredEvent, 'id'>
+    ) | (
+      { __typename?: 'Tree' }
+      & Pick<Tree, 'id'>
+    ) | (
+      { __typename?: 'UnassignedEvent' }
+      & Pick<UnassignedEvent, 'id'>
+    ) | (
+      { __typename?: 'UnlabeledEvent' }
+      & Pick<UnlabeledEvent, 'id'>
+    ) | (
+      { __typename?: 'UnlockedEvent' }
+      & Pick<UnlockedEvent, 'id'>
+    ) | (
+      { __typename?: 'UnmarkedAsDuplicateEvent' }
+      & Pick<UnmarkedAsDuplicateEvent, 'id'>
+    ) | (
+      { __typename?: 'UnpinnedEvent' }
+      & Pick<UnpinnedEvent, 'id'>
+    ) | (
+      { __typename?: 'UnsubscribedEvent' }
+      & Pick<UnsubscribedEvent, 'id'>
+    ) | (
+      { __typename?: 'User' }
+      & Pick<User, 'id'>
+    ) | (
+      { __typename?: 'UserBlockedEvent' }
+      & Pick<UserBlockedEvent, 'id'>
+    ) | (
+      { __typename?: 'UserContentEdit' }
+      & Pick<UserContentEdit, 'id'>
+    ) | (
+      { __typename?: 'UserStatus' }
+      & Pick<UserStatus, 'id'>
+    ) | (
+      { __typename?: 'VerifiableDomain' }
+      & Pick<VerifiableDomain, 'id'>
+    )> }
+  )> }
+);
+
 export type UserQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -19758,7 +20345,7 @@ export type IssueDetailQuery = (
     { __typename?: 'Repository' }
     & { issue?: Maybe<(
       { __typename?: 'Issue' }
-      & Pick<Issue, 'title' | 'body' | 'createdAt' | 'state'>
+      & Pick<Issue, 'id' | 'title' | 'body' | 'createdAt' | 'state'>
       & { author?: Maybe<(
         { __typename?: 'Bot' }
         & Pick<Bot, 'avatarUrl' | 'login'>
@@ -19805,6 +20392,42 @@ export type IssueDetailQuery = (
 );
 
 
+export const AddCommentDocument = gql`
+    mutation AddComment($issueId: ID!, $body: String!) {
+  addComment(input: {subjectId: $issueId, body: $body}) {
+    subject {
+      id
+    }
+  }
+}
+    `;
+export type AddCommentMutationFn = Apollo.MutationFunction<AddCommentMutation, AddCommentMutationVariables>;
+
+/**
+ * __useAddCommentMutation__
+ *
+ * To run a mutation, you first call `useAddCommentMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAddCommentMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [addCommentMutation, { data, loading, error }] = useAddCommentMutation({
+ *   variables: {
+ *      issueId: // value for 'issueId'
+ *      body: // value for 'body'
+ *   },
+ * });
+ */
+export function useAddCommentMutation(baseOptions?: Apollo.MutationHookOptions<AddCommentMutation, AddCommentMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<AddCommentMutation, AddCommentMutationVariables>(AddCommentDocument, options);
+      }
+export type AddCommentMutationHookResult = ReturnType<typeof useAddCommentMutation>;
+export type AddCommentMutationResult = Apollo.MutationResult<AddCommentMutation>;
+export type AddCommentMutationOptions = Apollo.BaseMutationOptions<AddCommentMutation, AddCommentMutationVariables>;
 export const UserDocument = gql`
     query User {
   viewer {
@@ -19954,6 +20577,7 @@ export const IssueDetailDocument = gql`
     query IssueDetail($name: String!, $owner: String!, $number: Int!) {
   repository(name: $name, owner: $owner) {
     issue(number: $number) {
+      id
       title
       author {
         avatarUrl

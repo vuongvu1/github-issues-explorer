@@ -10,8 +10,8 @@ interface Props {
   filter: IssueState;
   setFilter: (filter: IssueState) => void;
   loading?: boolean;
-  issueCount: number;
-  totalCount: number;
+  issueCount?: number;
+  totalCount?: number;
   error?: string;
   hasPreviousPage?: boolean;
   hasNextPage?: boolean;

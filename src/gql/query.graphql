@@ -61,6 +61,7 @@ query IssueCount($name: String!, $owner: String!) {
 query IssueDetail($name: String!, $owner: String!, $number: Int!) {
   repository(name: $name, owner: $owner) {
     issue(number: $number) {
+      id
       title
       author {
         avatarUrl

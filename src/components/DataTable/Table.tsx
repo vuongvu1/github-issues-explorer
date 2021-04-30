@@ -18,8 +18,8 @@ interface Props {
   loading?: boolean;
   filter: IssueState;
   setFilter: (filter: IssueState) => void;
-  issueCount: number;
-  totalCount: number;
+  issueCount?: number;
+  totalCount?: number;
   error?: string;
 }
 
@@ -35,7 +35,9 @@ const Table: React.FC<Props> = ({
   const { palette } = useTheme();
   const isFilterOpen = filter === IssueState.Open;
   const nonSelectedIssueCount =
-    issueCount && totalCount ? totalCount - issueCount : 0;
+    (issueCount || issueCount === 0) && totalCount
+      ? totalCount - issueCount
+      : null;
 
   return (
     <SC.TableContainer>

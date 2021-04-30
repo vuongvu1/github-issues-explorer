@@ -45,8 +45,8 @@ const Issue: FC<Props> = ({ setFilter, setCursor, searchParams }) => {
         filter={searchParams.status}
         setFilter={setFilter}
         loading={loading}
-        issueCount={issueCount || 0}
-        totalCount={totalCount || 0}
+        issueCount={issueCount}
+        totalCount={totalCount}
         error={!issueCount ? error?.message : undefined}
         hasNextPage={hasNextPage}
         goNextPage={goNextPage}

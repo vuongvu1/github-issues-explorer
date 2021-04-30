@@ -1,11 +1,14 @@
 import { FC, useState } from "react";
 import { Converter } from "showdown";
 import ReactMde from "react-mde";
+import { Spinner } from "src/assets/icons";
 import "react-mde/lib/styles/css/react-mde-all.css";
 import SC from "./styles";
 
 type Props = {
   avatarUrl: string;
+  handleAddComment: (text: string) => void;
+  isCommenting: boolean;
 };
 
 const converter = new Converter({
@@ -15,9 +18,18 @@ const converter = new Converter({
   tasklists: true,
 });
 
-const CommentEditor: FC<Props> = ({ avatarUrl }) => {
-  const [value, setValue] = useState("**Hello world!!!**");
+const CommentEditor: FC<Props> = ({
+  avatarUrl,
+  handleAddComment,
+  isCommenting,
+}) => {
+  const [value, setValue] = useState("");
   const [selectedTab, setSelectedTab] = useState<"write" | "preview">("write");
+
+  const onClickComment = () => {
+    handleAddComment(value);
+    setValue("");
+  };
 
   return (
     <SC.Container>
@@ -33,7 +45,15 @@ const CommentEditor: FC<Props> = ({ avatarUrl }) => {
               Promise.resolve(converter.makeHtml(markdown))
             }
           />
-          <SC.CommentButton>Comment</SC.CommentButton>
+          <SC.CommentButton
+            disabled={!value || isCommenting}
+            onClick={onClickComment}
+          >
+            Comment
+          </SC.CommentButton>
+          <SC.Loading>
+            {isCommenting && <Spinner width="32" height="32" />}
+          </SC.Loading>
         </SC.CommentBody>
       </SC.CommentWrapper>
     </SC.Container>

@@ -28,6 +28,7 @@ const repoSlice = createSlice({
     setRepo(state, action) {
       const { url, owner, name } = action.payload;
       return {
+        ...state,
         url,
         searchParams: {
           ...state.searchParams,
