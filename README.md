@@ -79,7 +79,8 @@ npm start
   - issue number
   - time since created
   - author name
-    ![Issue brief info](screenshots/issue-brief-info.png)
+
+  ![Issue brief info](screenshots/issue-brief-info.png)
 
 - Issue Detail view
 
@@ -106,7 +107,10 @@ npm start
 
 ![Repo input bar](screenshots/repo-input-bar.png)
 
-User can paste every repository address in the input bar, the default value is "https://github.com/reactjs/reactjs.org", the app will show the issues accordingly. If you change the repo address when viewing an issue detail, you will be automatically redirected to the `All Issues` view.
+User can paste any repository address into the input bar, default value is "https://github.com/reactjs/reactjs.org", the app will show the issues accordingly. If you change the repo address when viewing an issue detail, you will be automatically redirected to the `All Issues` view.
+
+If you put an incorrect address, it will show an error:
+![Error](screenshots/incorrect-repo-address.png)
 
 ### 3. Issue Filter
 
@@ -118,7 +122,9 @@ User can filter issues based on their open/closed status.
 
 ![Issue Filter](screenshots/pagination.png)
 
-The app support basic pagination with maximum 3 pages showed and Previous and Next button.
+The app support basic pagination with maximum 3 pages showed and **Previous** and **Next** button.
+
+If anything change that affects the issue view (change repo address, switch filter, refresh page...), it will go back to page 1.
 
 ### 5. Add Comments
 
@@ -130,4 +136,4 @@ User can add comments on every issues, the editor supports markdown. The page wi
 
 ![Delete Comments](screenshots/delete-comments.png)
 
-User can delete comments on every issues, noted that you can only delete your own comments or other's comments on your own issues.
+User can delete comments on every issues, noted that you can only delete your own comments or other's comments on your own issues. The page will automatically update after user delete a comment.
