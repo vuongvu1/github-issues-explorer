@@ -1,46 +1,63 @@
-# Getting Started with Create React App
+# GitHub Issues Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A small client application using github [QraphQL API](https://docs.github.com/en/graphql).
 
-## Available Scripts
+## How to run the app
 
-In the project directory, you can run:
+### 1. Get your GitHub access token
 
-### `yarn start`
+Follow the steps in [Creating a personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) to create a token.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To match the behavior of the [GraphQL Explorer](https://docs.github.com/en/graphql/guides/using-the-explorer), request the following scopes:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+user
+public_repo
+repo
+repo_deployment
+repo:status
+read:repo_hook
+read:org
+read:public_key
+read:gpg_key
+```
 
-### `yarn test`
+Save your new access token.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2. Clone the repo
 
-### `yarn build`
+```
+git clone git@github.com:vuongvu1/github-issues-explorer.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. Install dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+(recommended)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+yarn install
+```
 
-### `yarn eject`
+or
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+npm install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4. Add environment variables
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Create an `.env` file in the project root directory
+- Copy the content in `.env-template` to the `.env`
+- Copy your new access token in step 1 to the value `REACT_APP_GITHUB_TOKEN`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 5. Start the app
 
-## Learn More
+```
+yarn start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+or
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+npm start
+```
