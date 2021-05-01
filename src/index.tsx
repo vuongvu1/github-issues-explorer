@@ -6,7 +6,7 @@ import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { setContext } from "@apollo/client/link/context";
 import reportWebVitals from "./reportWebVitals";
-import GlobalStyle, { theme } from "./globalStyles";
+import GlobalStyles, { theme } from "./globalStyles";
 import store from "./store";
 import App from "./router";
 
@@ -30,7 +30,7 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalStyle />
+    <GlobalStyles />
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
         <StoreProvider store={store}>

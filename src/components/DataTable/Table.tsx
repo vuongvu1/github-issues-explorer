@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import { useTheme } from "styled-components";
 import { Link } from "react-router-dom";
 import { IssueState } from "src/generated/graphql";
@@ -13,7 +13,7 @@ import {
 } from "src/assets/icons";
 import SC from "./styles";
 
-interface Props {
+type Props = {
   issues: IssueType[];
   loading?: boolean;
   filter: IssueState;
@@ -21,9 +21,9 @@ interface Props {
   issueCount?: number;
   totalCount?: number;
   error?: string;
-}
+};
 
-const Table: React.FC<Props> = ({
+const Table: FC<Props> = ({
   issues,
   filter,
   setFilter,

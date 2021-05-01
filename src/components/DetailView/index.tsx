@@ -75,9 +75,9 @@ const DetailView: React.FC<Props> = ({
         {!error && !loading && (
           <>
             {IssueInfo}
-            <hr />
+            <SC.Seperator />
             <CommentViewer author={author} body={body} createdAt={createdAt} />
-            <hr />
+            <SC.Seperator />
             {comments.map((comment) => (
               <Fragment key={comment.id}>
                 <CommentViewer
@@ -91,7 +91,7 @@ const DetailView: React.FC<Props> = ({
                   createdAt={comment.createdAt}
                   handleDeleteComment={handleDeleteComment}
                 />
-                <hr />
+                <SC.Seperator />
               </Fragment>
             ))}
             <CommentEditor

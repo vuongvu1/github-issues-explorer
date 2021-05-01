@@ -59,6 +59,12 @@ const SC = {
       font-weight: ${theme.fontWeight.md};
     `
   ),
+  Seperator: styled.div(
+    ({ theme }) => css`
+      color: transparent;
+      margin: ${theme.spacing.sm};
+    `
+  ),
 };
 
 export default SC;

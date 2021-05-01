@@ -48,7 +48,9 @@ exports[`DetailView should match snapshot 1`] = `
        comment
       s
     </div>
-    <hr />
+    <div
+      class="sc-ezbkgU ecvWYF"
+    />
     <div
       class="sc-fotPbf gyzvf"
     >
@@ -81,7 +83,9 @@ exports[`DetailView should match snapshot 1`] = `
         </div>
       </div>
     </div>
-    <hr />
+    <div
+      class="sc-ezbkgU ecvWYF"
+    />
     <div
       class="sc-hGPAah bSxEqh"
     >

@@ -122,7 +122,7 @@ User can filter issues based on their open/closed status.
 
 ![Issue Filter](screenshots/pagination.png)
 
-The app support basic pagination with maximum 3 pages showed and **Previous** and **Next** button.
+The app supports basic pagination with maximum 3 pages showed and **Previous** and **Next** button.
 
 If anything change that affects the issue view (change repo address, switch filter, refresh page...), it will go back to page 1.
 
@@ -130,10 +130,14 @@ If anything change that affects the issue view (change repo address, switch filt
 
 ![Add Comments](screenshots/add-comments.png)
 
-User can add comments on every issues, the editor supports markdown. The page will automatically update after user add a new comment.
+User can add comments on every issues, the editor supports markdown.
+
+The page will automatically update after user add a new comment.
 
 ### 6. Delete Comments
 
 ![Delete Comments](screenshots/delete-comments.png)
 
-User can delete comments on every issues, noted that user can only delete their own comments or other's comments on user's issues. The page will automatically update after user delete a comment.
+User can delete comments on every issues, noted that user can only delete their own comments or other's comments on user's issues.
+
+The page will automatically update after user delete a comment.

@@ -30,8 +30,7 @@ const CommentViewer: FC<Props> = ({
   handleDeleteComment,
 }) => {
   const confirmDelete = () => {
-    // eslint-disable-next-line no-restricted-globals
-    const isConfirmed = confirm("Are you sure you want to delete this?");
+    const isConfirmed = window.confirm("Are you sure you want to delete this?");
 
     if (isConfirmed && handleDeleteComment && id) handleDeleteComment(id);
   };
