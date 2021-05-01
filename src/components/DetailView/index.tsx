@@ -24,7 +24,7 @@ interface Props {
   loading: boolean;
   isCommenting: boolean;
   error?: string;
-  currentUserAvatar: string;
+  currentUser: AuthorType;
   handleAddComment: (text: string) => void;
   handleDeleteComment: (id: string) => void;
 }
@@ -39,7 +39,7 @@ const DetailView: React.FC<Props> = ({
   loading,
   isCommenting,
   error,
-  currentUserAvatar,
+  currentUser,
   handleAddComment,
   handleDeleteComment,
 }) => {
@@ -82,6 +82,10 @@ const DetailView: React.FC<Props> = ({
               <Fragment key={comment.id}>
                 <CommentViewer
                   id={comment.id}
+                  canDelete={
+                    currentUser?.login === author?.login ||
+                    currentUser?.login === comment.author.login
+                  }
                   author={comment.author}
                   body={comment.body}
                   createdAt={comment.createdAt}
@@ -91,7 +95,7 @@ const DetailView: React.FC<Props> = ({
               </Fragment>
             ))}
             <CommentEditor
-              avatarUrl={currentUserAvatar}
+              avatarUrl={currentUser?.avatarUrl}
               handleAddComment={handleAddComment}
               isCommenting={isCommenting}
             />

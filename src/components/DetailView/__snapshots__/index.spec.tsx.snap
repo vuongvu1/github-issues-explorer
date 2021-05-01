@@ -87,7 +87,6 @@ exports[`DetailView should match snapshot 1`] = `
     >
       <img
         class="sc-dlVyqM faujEj"
-        src="avatarUrl"
       />
       <div
         class="sc-kfPtPH klhkFr"

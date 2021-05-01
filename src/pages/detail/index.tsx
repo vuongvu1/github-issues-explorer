@@ -88,7 +88,7 @@ const Detail: FC<Props> = ({ owner, name }) => {
         handleDeleteComment={handleDeleteComment}
         loading={loading}
         error={!cleanData ? error?.message : undefined}
-        currentUserAvatar={userData?.viewer?.avatarUrl}
+        currentUser={userData?.viewer as AuthorType}
       />
     </Layout>
   );

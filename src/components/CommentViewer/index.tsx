@@ -9,6 +9,7 @@ type Props = {
   id?: string;
   body: string;
   createdAt: string;
+  canDelete?: boolean;
   author: AuthorType;
   handleDeleteComment?: (id: string) => void;
 };
@@ -24,6 +25,7 @@ const CommentViewer: FC<Props> = ({
   id,
   body,
   createdAt,
+  canDelete,
   author,
   handleDeleteComment,
 }) => {
@@ -43,7 +45,7 @@ const CommentViewer: FC<Props> = ({
             <strong>{author?.login}</strong> commented{" "}
             {timeSince(new Date(createdAt))} ago
           </span>
-          {handleDeleteComment && (
+          {canDelete && handleDeleteComment && (
             <TrashIcon data-testid="delete-btn" onClick={confirmDelete} />
           )}
         </SC.CommentHeader>

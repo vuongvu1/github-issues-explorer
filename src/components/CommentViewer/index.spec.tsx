@@ -35,6 +35,7 @@ describe("CommentViewer", () => {
         body="Comment body"
         createdAt="2021-04-28T09:02:57Z"
         handleDeleteComment={mockDeleteComment}
+        canDelete
       />
     );
 
