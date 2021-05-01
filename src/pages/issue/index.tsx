@@ -16,9 +16,15 @@ type Props = {
   setFilter: (filter: IssueState) => void;
   setCursor: ({ before, after }: { before?: string; after?: string }) => void;
   searchParams: SearchParamsType;
+  currentPage: number;
 };
 
-const Issue: FC<Props> = ({ setFilter, setCursor, searchParams }) => {
+const Issue: FC<Props> = ({
+  setFilter,
+  setCursor,
+  searchParams,
+  currentPage,
+}) => {
   const { data: countData } = useIssueCountQuery({
     variables: { name: searchParams.name, owner: searchParams.owner },
   });
@@ -52,6 +58,7 @@ const Issue: FC<Props> = ({ setFilter, setCursor, searchParams }) => {
         goNextPage={goNextPage}
         hasPreviousPage={hasPreviousPage}
         goPreviousPage={goPreviousPage}
+        currentPage={currentPage}
       />
     </Layout>
   );
@@ -64,6 +71,7 @@ const mapDispatchToProps = {
 
 const mapStateToProps = ({ repoSlice }: RootState) => ({
   searchParams: repoSlice.searchParams,
+  currentPage: repoSlice.currentPage,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Issue);

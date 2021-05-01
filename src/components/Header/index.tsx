@@ -1,8 +1,12 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { useTheme } from "styled-components";
 import { RootState } from "src/reducers/types";
-import { setRepo as setRepoAction } from "src/reducers/repoSlice";
+import {
+  setRepo as setRepoAction,
+  resetParams as resetParamsAction,
+} from "src/reducers/repoSlice";
 import { SearchBar, Text, TextType } from "..";
 import SC from "./styles";
 
@@ -17,17 +21,24 @@ type Props = {
     name: string;
     owner: string;
   }) => void;
+  resetParams: () => void;
 };
 
 const GITHUB_RE = /^https:\/\/github.com\/([^/ ]+)\/([^/ ]+)\/*/;
 
-const Header: FC<Props> = ({ githubUrl, setRepo }) => {
+const Header: FC<Props> = ({ githubUrl, setRepo, resetParams }) => {
+  const history = useHistory();
   const { palette } = useTheme();
 
   const handleSearch = (newText: string) => {
     const [newUrl, owner, name] = newText.match(GITHUB_RE) || [];
     setRepo({ url: newUrl, owner, name });
   };
+
+  useEffect(() => {
+    resetParams();
+    history.push("/");
+  }, [githubUrl, resetParams]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <SC.Wrapper>
@@ -41,6 +52,7 @@ const Header: FC<Props> = ({ githubUrl, setRepo }) => {
 
 const mapDispatchToProps = {
   setRepo: setRepoAction,
+  resetParams: resetParamsAction,
 };
 
 const mapStateToProps = ({ repoSlice }: RootState) => ({

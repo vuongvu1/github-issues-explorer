@@ -12,6 +12,7 @@ const repoSlice = createSlice({
   name: "repo",
   initialState: {
     url: "https://github.com/reactjs/reactjs.org",
+    currentPage: 1,
     searchParams: {
       name: "reactjs.org",
       owner: "reactjs",
@@ -54,6 +55,7 @@ const repoSlice = createSlice({
       const { before, after } = action.payload;
       return {
         ...state,
+        currentPage: after ? state.currentPage + 1 : state.currentPage - 1,
         searchParams: {
           ...state.searchParams,
           before: before || undefined,
@@ -63,9 +65,23 @@ const repoSlice = createSlice({
         },
       };
     },
+    resetParams(state) {
+      return {
+        ...state,
+        currentPage: 1,
+        searchParams: {
+          ...state.searchParams,
+          status: IssueState.Open,
+          before: undefined,
+          after: undefined,
+          first: DEFAULT_PAGE_SIZE,
+          last: undefined,
+        },
+      };
+    },
   },
 });
 
-export const { setRepo, setFilter, setCursor } = repoSlice.actions;
+export const { setRepo, setFilter, setCursor, resetParams } = repoSlice.actions;
 
 export default repoSlice.reducer;
