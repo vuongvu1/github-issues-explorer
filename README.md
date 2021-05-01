@@ -107,9 +107,9 @@ npm start
 
 ![Repo input bar](screenshots/repo-input-bar.png)
 
-User can paste any repository address into the input bar, default value is "https://github.com/reactjs/reactjs.org", the app will show the issues accordingly. If you change the repo address when viewing an issue detail, you will be automatically redirected to the `All Issues` view.
+User can paste any repository address into the input bar, default value is "https://github.com/reactjs/reactjs.org", the app will show the issues accordingly. If user change the repo address when viewing an issue detail, they will be automatically redirected to the `All Issues` view.
 
-If you put an incorrect address, it will show an error:
+If user put an incorrect address, it will show an error:
 ![Error](screenshots/incorrect-repo-address.png)
 
 ### 3. Issue Filter
@@ -136,4 +136,4 @@ User can add comments on every issues, the editor supports markdown. The page wi
 
 ![Delete Comments](screenshots/delete-comments.png)
 
-User can delete comments on every issues, noted that you can only delete your own comments or other's comments on your own issues. The page will automatically update after user delete a comment.
+User can delete comments on every issues, noted that user can only delete their own comments or other's comments on user's issues. The page will automatically update after user delete a comment.
