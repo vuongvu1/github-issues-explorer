@@ -41,6 +41,7 @@ const repoSlice = createSlice({
     setFilter(state, action) {
       return {
         ...state,
+        currentPage: 1,
         searchParams: {
           ...state.searchParams,
           before: undefined,

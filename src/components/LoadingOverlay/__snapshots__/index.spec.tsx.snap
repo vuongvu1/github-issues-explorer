@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Text should match snapshot when loading 1`] = `
+exports[`LoadingOverlay should match snapshot when loading 1`] = `
 <div>
   <div
     class="sc-gsDJrp cmdCSZ"
@@ -76,4 +76,4 @@ exports[`Text should match snapshot when loading 1`] = `
 </div>
 `;
 
-exports[`Text should return empty when not loading 1`] = `<div />`;
+exports[`LoadingOverlay should return empty when not loading 1`] = `<div />`;

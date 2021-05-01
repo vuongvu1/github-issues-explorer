@@ -43,7 +43,9 @@ const CommentViewer: FC<Props> = ({
             <strong>{author?.login}</strong> commented{" "}
             {timeSince(new Date(createdAt))} ago
           </span>
-          {handleDeleteComment && <TrashIcon onClick={confirmDelete} />}
+          {handleDeleteComment && (
+            <TrashIcon data-testid="delete-btn" onClick={confirmDelete} />
+          )}
         </SC.CommentHeader>
         <SC.CommentBody
           dangerouslySetInnerHTML={{

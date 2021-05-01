@@ -2,7 +2,7 @@ import { cleanup } from "@testing-library/react";
 import { customRender } from "src/utils/test";
 import LoadingOverlay from "./index";
 
-describe("Text", () => {
+describe("LoadingOverlay", () => {
   afterEach(cleanup);
 
   test("should match snapshot when loading", () => {

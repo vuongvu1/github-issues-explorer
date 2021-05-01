@@ -46,6 +46,7 @@ const CommentEditor: FC<Props> = ({
             }
           />
           <SC.CommentButton
+            data-testid="add-comment-btn"
             disabled={!value || isCommenting}
             onClick={onClickComment}
           >
