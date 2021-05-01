@@ -1,5 +1,5 @@
 import { cleanup } from "@testing-library/react";
-import { customRender } from "src/utils/test";
+import { customRender } from "src/utils/testUtils";
 import LoadingOverlay from "./index";
 
 describe("LoadingOverlay", () => {

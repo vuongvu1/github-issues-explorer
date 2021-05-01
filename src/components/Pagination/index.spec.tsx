@@ -1,5 +1,5 @@
 import { cleanup, fireEvent } from "@testing-library/react";
-import { customRender } from "src/utils/test";
+import { customRender } from "src/utils/testUtils";
 import Pagination from "./index";
 
 describe("Pagination", () => {

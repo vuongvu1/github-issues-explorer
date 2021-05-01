@@ -42,7 +42,7 @@ exports[`DetailView should match snapshot 1`] = `
       </strong>
        opened this issue
        
-      2 days
+      3 days
        ago · 
       0
        comment
@@ -68,7 +68,7 @@ exports[`DetailView should match snapshot 1`] = `
             </strong>
              commented
              
-            2 days
+            3 days
              ago
           </span>
         </div>
@@ -87,6 +87,7 @@ exports[`DetailView should match snapshot 1`] = `
     >
       <img
         class="sc-dlVyqM faujEj"
+        src="avatarUrl"
       />
       <div
         class="sc-kfPtPH klhkFr"

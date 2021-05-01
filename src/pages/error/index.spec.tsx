@@ -1,5 +1,5 @@
 import { cleanup } from "@testing-library/react";
-import { customRender } from "src/utils/test";
+import { customRender } from "src/utils/testUtils";
 import ErrorPage from "./index";
 
 describe("ErrorPage", () => {

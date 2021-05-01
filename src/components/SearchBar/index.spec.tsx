@@ -1,5 +1,5 @@
 import { cleanup, fireEvent, waitFor } from "@testing-library/react";
-import { customRender } from "src/utils/test";
+import { customRender } from "src/utils/testUtils";
 import SearchBar from "./index";
 
 describe("SearchBar", () => {

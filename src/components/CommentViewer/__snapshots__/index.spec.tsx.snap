@@ -21,7 +21,7 @@ exports[`CommentViewer should match snapshot 1`] = `
           </strong>
            commented
            
-          2 days
+          3 days
            ago
         </span>
       </div>
