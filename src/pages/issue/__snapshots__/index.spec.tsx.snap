@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IssuePage should match snapshot 1`] = `
+<div>
+  <div
+    class="sc-crHlIS jkdymW"
+  >
+    <div
+      class="sc-egiSv kwgRtk"
+    >
+      <h2
+        class="sc-jRQAMF iYUFVx"
+        type="h2"
+      >
+        reactjs / reactjs.org - Issues
+      </h2>
+    </div>
+    <div
+      class="sc-bqiQRQ ihGzzV"
+    >
+      <div
+        class="sc-ksdxAp kHMzp"
+      >
+        <div
+          class="sc-furvIG joAWHN"
+        >
+          <div
+            class="sc-pVTma spJgp"
+          >
+            <div
+              class="sc-ieebsP higNQB"
+            >
+              <svg
+                class="sc-gsDJrp hiSWTT"
+                height="48"
+                viewBox="0 0 48 48"
+                width="48"
+              >
+                <circle
+                  cx="24"
+                  cy="4"
+                  fill="#000"
+                  r="4"
+                />
+                <circle
+                  cx="12.19"
+                  cy="7.86"
+                  fill="#000"
+                  r="3.7"
+                />
+                <circle
+                  cx="5.02"
+                  cy="17.68"
+                  fill="#000"
+                  r="3.4"
+                />
+                <circle
+                  cx="5.02"
+                  cy="30.32"
+                  fill="#000"
+                  r="3.1"
+                />
+                <circle
+                  cx="12.19"
+                  cy="40.14"
+                  fill="#000"
+                  r="2.8"
+                />
+                <circle
+                  cx="24"
+                  cy="44"
+                  fill="#000"
+                  r="2.5"
+                />
+                <circle
+                  cx="35.81"
+                  cy="40.14"
+                  fill="#000"
+                  r="2.2"
+                />
+                <circle
+                  cx="42.98"
+                  cy="30.32"
+                  fill="#000"
+                  r="1.9"
+                />
+                <circle
+                  cx="42.98"
+                  cy="17.68"
+                  fill="#000"
+                  r="1.6"
+                />
+                <circle
+                  cx="35.81"
+                  cy="7.86"
+                  fill="#000"
+                  r="1.3"
+                />
+              </svg>
+            </div>
+            <div
+              class="sc-jrQzUz gRUHIY"
+            >
+              <div
+                class="sc-iqsfdx FyauU"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="prefix__octicon prefix__octicon-issue-opened"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <title>
+                    Open Issues
+                  </title>
+                  <path
+                    d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm9 3a1 1 0 11-2 0 1 1 0 012 0zm-.25-6.25a.75.75 0 00-1.5 0v3.5a.75.75 0 001.5 0v-3.5z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+                 Open
+              </div>
+              <div
+                class="sc-iqsfdx duBOUF"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="prefix__octicon prefix__octicon-check"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <title>
+                    Closed Issues
+                  </title>
+                  <path
+                    d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+                 Closed
+              </div>
+            </div>
+            <div
+              class="sc-kDThTU EEUgj"
+            >
+              No issues found.
+            </div>
+          </div>
+          <div
+            class="sc-gKckTs jLoZpw"
+          >
+            <div>
+              <button
+                class="sc-iCfLBT eDmwTq"
+                data-testid="prev-btn"
+              >
+                Previous
+              </button>
+              <button
+                class="sc-iCfLBT kbrdGG"
+              >
+                1
+              </button>
+              <button
+                class="sc-iCfLBT eDmwTq"
+                data-testid="next-btn"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

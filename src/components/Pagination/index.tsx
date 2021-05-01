@@ -20,6 +20,7 @@ const Pagination: React.FC<Props> = ({
     <SC.Container>
       <div>
         <SC.Button
+          data-testid="prev-btn"
           isDisabled={!hasPreviousPage}
           onClick={hasPreviousPage ? onClickPrevious : undefined}
         >
@@ -33,6 +34,7 @@ const Pagination: React.FC<Props> = ({
           <SC.Button onClick={onClickNext}>{current + 1}</SC.Button>
         )}
         <SC.Button
+          data-testid="next-btn"
           isDisabled={!hasNextPage}
           onClick={hasNextPage ? onClickNext : undefined}
         >

@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icons component \`CircleError\` should match snapshot 1`] = `
+<div>
+  <svg
+    aria-hidden="true"
+    class="prefix__octicon prefix__octicon-issue-closed prefix__closed"
+    height="1em"
+    viewBox="0 0 16 16"
+    width="1em"
+  >
+    <path
+      d="M1.5 8a6.5 6.5 0 0110.65-5.003.75.75 0 00.959-1.153 8 8 0 102.592 8.33.75.75 0 10-1.444-.407A6.5 6.5 0 011.5 8zM8 12a1 1 0 100-2 1 1 0 000 2zm0-8a.75.75 0 01.75.75v3.5a.75.75 0 11-1.5 0v-3.5A.75.75 0 018 4zm4.78 4.28l3-3a.75.75 0 00-1.06-1.06l-2.47 2.47-.97-.97a.749.749 0 10-1.06 1.06l1.5 1.5a.75.75 0 001.06 0z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Icons component \`CircleWarning\` should match snapshot 1`] = `
+<div>
+  <svg
+    aria-hidden="true"
+    class="prefix__octicon prefix__octicon-issue-opened"
+    height="1em"
+    viewBox="0 0 16 16"
+    width="1em"
+  >
+    <path
+      d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm9 3a1 1 0 11-2 0 1 1 0 012 0zm-.25-6.25a.75.75 0 00-1.5 0v3.5a.75.75 0 001.5 0v-3.5z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Icons component \`Comment\` should match snapshot 1`] = `
+<div>
+  <svg
+    aria-hidden="true"
+    class="prefix__octicon prefix__octicon-comment prefix__v-align-middle"
+    height="1em"
+    viewBox="0 0 16 16"
+    width="1em"
+  >
+    <path
+      d="M2.75 2.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h2a.75.75 0 01.75.75v2.19l2.72-2.72a.75.75 0 01.53-.22h4.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25H2.75zM1 2.75C1 1.784 1.784 1 2.75 1h10.5c.966 0 1.75.784 1.75 1.75v7.5A1.75 1.75 0 0113.25 12H9.06l-2.573 2.573A1.457 1.457 0 014 13.543V12H2.75A1.75 1.75 0 011 10.25v-7.5z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Icons component \`Search\` should match snapshot 1`] = `
+<div>
+  <svg
+    height="1em"
+    viewBox="0 0 512.005 512.005"
+    width="1em"
+  >
+    <path
+      d="M505.749 475.587l-145.6-145.6c28.203-34.837 45.184-79.104 45.184-127.317C405.333 90.926 314.41.003 202.666.003S0 90.925 0 202.669s90.923 202.667 202.667 202.667c48.213 0 92.48-16.981 127.317-45.184l145.6 145.6c4.16 4.16 9.621 6.251 15.083 6.251s10.923-2.091 15.083-6.251c8.341-8.341 8.341-21.824-.001-30.165zM202.667 362.669c-88.235 0-160-71.765-160-160s71.765-160 160-160 160 71.765 160 160-71.766 160-160 160z"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Icons component \`Spinner\` should match snapshot 1`] = `
+<div>
+  <svg
+    class="sc-bdvvaa fusWIN"
+    height="1em"
+    viewBox="0 0 48 48"
+    width="1em"
+  >
+    <circle
+      cx="24"
+      cy="4"
+      fill="#000"
+      r="4"
+    />
+    <circle
+      cx="12.19"
+      cy="7.86"
+      fill="#000"
+      r="3.7"
+    />
+    <circle
+      cx="5.02"
+      cy="17.68"
+      fill="#000"
+      r="3.4"
+    />
+    <circle
+      cx="5.02"
+      cy="30.32"
+      fill="#000"
+      r="3.1"
+    />
+    <circle
+      cx="12.19"
+      cy="40.14"
+      fill="#000"
+      r="2.8"
+    />
+    <circle
+      cx="24"
+      cy="44"
+      fill="#000"
+      r="2.5"
+    />
+    <circle
+      cx="35.81"
+      cy="40.14"
+      fill="#000"
+      r="2.2"
+    />
+    <circle
+      cx="42.98"
+      cy="30.32"
+      fill="#000"
+      r="1.9"
+    />
+    <circle
+      cx="42.98"
+      cy="17.68"
+      fill="#000"
+      r="1.6"
+    />
+    <circle
+      cx="35.81"
+      cy="7.86"
+      fill="#000"
+      r="1.3"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Icons component \`Tick\` should match snapshot 1`] = `
+<div>
+  <svg
+    aria-hidden="true"
+    class="prefix__octicon prefix__octicon-check"
+    height="1em"
+    viewBox="0 0 16 16"
+    width="1em"
+  >
+    <path
+      d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Icons component \`Trash\` should match snapshot 1`] = `
+<div>
+  <svg
+    aria-hidden="true"
+    class="prefix__octicon prefix__octicon-trash"
+    height="1em"
+    viewBox="0 0 16 16"
+    width="1em"
+  >
+    <path
+      d="M6.5 1.75a.25.25 0 01.25-.25h2.5a.25.25 0 01.25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 10-1.492.15l.66 6.6A1.75 1.75 0 005.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 00-1.492-.149l-.66 6.6a.25.25 0 01-.249.225h-5.19a.25.25 0 01-.249-.225l-.66-6.6z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</div>
+`;

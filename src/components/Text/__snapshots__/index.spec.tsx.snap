@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text should match snapshot 1`] = `
+<div>
+  <h1
+    class="sc-bdvvaa iiiBEs"
+    type="h1"
+  />
+</div>
+`;
+
+exports[`Text should match snapshot 2`] = `
+<div>
+  <h2
+    class="sc-bdvvaa dFHBig"
+    type="h2"
+  />
+</div>
+`;
+
+exports[`Text should match snapshot 3`] = `
+<div>
+  <p
+    class="sc-bdvvaa cxIyPR"
+    type="p"
+  />
+</div>
+`;

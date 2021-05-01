@@ -2,13 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider as StoreProvider } from "react-redux";
 import { ThemeProvider } from "styled-components";
-import {
-  ApolloClient,
-  ApolloProvider,
-  InMemoryCache,
-  createHttpLink,
-} from "@apollo/client";
-import { ApolloProvider as ApolloHooksProvider } from "@apollo/react-hooks";
+import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
+import { ApolloProvider } from "@apollo/react-hooks";
 import { setContext } from "@apollo/client/link/context";
 import reportWebVitals from "./reportWebVitals";
 import GlobalStyle, { theme } from "./globalStyles";
@@ -37,13 +32,11 @@ ReactDOM.render(
   <React.StrictMode>
     <GlobalStyle />
     <ApolloProvider client={client}>
-      <ApolloHooksProvider client={client}>
-        <ThemeProvider theme={theme}>
-          <StoreProvider store={store}>
-            <App />
-          </StoreProvider>
-        </ThemeProvider>
-      </ApolloHooksProvider>
+      <ThemeProvider theme={theme}>
+        <StoreProvider store={store}>
+          <App />
+        </StoreProvider>
+      </ThemeProvider>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById("root")

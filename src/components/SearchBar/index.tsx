@@ -25,6 +25,7 @@ const SearchBar: React.FC<Props> = ({ githubUrl, onSearch }) => {
   return (
     <SC.Container>
       <SC.SearchInput
+        data-testid="searchInputId"
         placeholder="Paste any GitHub repo here..."
         onChange={(e) => setText(e.target.value)}
         value={text}
