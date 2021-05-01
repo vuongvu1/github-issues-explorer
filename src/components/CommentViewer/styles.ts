@@ -40,6 +40,16 @@ const SC = {
     ({ theme }) => css`
       background-color: ${theme.palette.neutral};
       padding: ${theme.spacing.sm} ${theme.spacing.md};
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      > svg {
+        cursor: pointer;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
     `
   ),
   CommentBody: styled.div(

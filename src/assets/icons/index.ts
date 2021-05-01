@@ -4,3 +4,4 @@ export { default as CircleWarning } from "./CircleWarning";
 export { default as CircleError } from "./CircleError";
 export { default as Tick } from "./Tick";
 export { default as Comment } from "./Comment";
+export { default as Trash } from "./Trash";

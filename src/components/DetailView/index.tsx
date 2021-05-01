@@ -26,6 +26,7 @@ interface Props {
   error?: string;
   currentUserAvatar: string;
   handleAddComment: (text: string) => void;
+  handleDeleteComment: (id: string) => void;
 }
 
 const DetailView: React.FC<Props> = ({
@@ -40,6 +41,7 @@ const DetailView: React.FC<Props> = ({
   error,
   currentUserAvatar,
   handleAddComment,
+  handleDeleteComment,
 }) => {
   const { palette } = useTheme();
   const isOpen = status === IssueState.Open;
@@ -79,9 +81,11 @@ const DetailView: React.FC<Props> = ({
             {comments.map((comment) => (
               <Fragment key={comment.id}>
                 <CommentViewer
+                  id={comment.id}
                   author={comment.author}
                   body={comment.body}
                   createdAt={comment.createdAt}
+                  handleDeleteComment={handleDeleteComment}
                 />
                 <hr />
               </Fragment>

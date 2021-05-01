@@ -6,6 +6,7 @@ import {
   useUserQuery,
   useAddCommentMutation,
   IssueDetailDocument,
+  useDeleteCommentMutation,
 } from "src/generated/graphql";
 import { AuthorType, RootState, CommentType } from "src/reducers/types";
 import { Layout, DetailView } from "src/components";
@@ -31,6 +32,7 @@ const Detail: FC<Props> = ({ owner, name }) => {
     variables: issueDetailQueryVariables,
   });
   const [addComment, { loading: isCommenting }] = useAddCommentMutation();
+  const [deleteComment] = useDeleteCommentMutation();
 
   const cleanData = data?.repository?.issue;
   const comments = cleanData?.comments?.edges?.map(
@@ -55,6 +57,23 @@ const Detail: FC<Props> = ({ owner, name }) => {
     [issueDetailQueryVariables, issueId, addComment]
   );
 
+  const handleDeleteComment = useCallback(
+    async (commentId) => {
+      if (commentId) {
+        await deleteComment({
+          variables: { commentId },
+          refetchQueries: [
+            {
+              query: IssueDetailDocument,
+              variables: issueDetailQueryVariables,
+            },
+          ],
+        });
+      }
+    },
+    [issueDetailQueryVariables, deleteComment]
+  );
+
   return (
     <Layout title={`${owner} / ${name} - Issues #${issueNumber}`}>
       <DetailView
@@ -66,6 +85,7 @@ const Detail: FC<Props> = ({ owner, name }) => {
         comments={comments}
         isCommenting={isCommenting}
         handleAddComment={handleAddComment}
+        handleDeleteComment={handleDeleteComment}
         loading={loading}
         error={!cleanData ? error?.message : undefined}
         currentUserAvatar={userData?.viewer?.avatarUrl}
@@ -74,11 +94,9 @@ const Detail: FC<Props> = ({ owner, name }) => {
   );
 };
 
-const mapDispatchToProps = {};
-
 const mapStateToProps = ({ repoSlice }: RootState) => ({
   owner: repoSlice.searchParams.owner,
   name: repoSlice.searchParams.name,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Detail);
+export default connect(mapStateToProps)(Detail);

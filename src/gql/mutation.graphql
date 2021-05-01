@@ -5,3 +5,9 @@ mutation AddComment($issueId: ID!, $body: String!) {
     }
   }
 }
+
+mutation DeleteComment($commentId: ID!) {
+  deleteIssueComment(input: { id: $commentId }) {
+    clientMutationId
+  }
+}

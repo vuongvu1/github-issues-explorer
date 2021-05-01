@@ -1,10 +1,17 @@
 import { FC } from "react";
 import { Converter } from "showdown";
-import { CommentType } from "src/reducers/types";
+import { AuthorType } from "src/reducers/types";
 import { timeSince } from "src/utils/time";
+import { Trash as TrashIcon } from "src/assets/icons";
 import SC from "./styles";
 
-type Props = CommentType;
+type Props = {
+  id?: string;
+  body: string;
+  createdAt: string;
+  author: AuthorType;
+  handleDeleteComment?: (id: string) => void;
+};
 
 const converter = new Converter({
   tables: true,
@@ -13,14 +20,30 @@ const converter = new Converter({
   tasklists: true,
 });
 
-const CommentViewer: FC<Props> = ({ body, createdAt, author }) => {
+const CommentViewer: FC<Props> = ({
+  id,
+  body,
+  createdAt,
+  author,
+  handleDeleteComment,
+}) => {
+  const confirmDelete = () => {
+    // eslint-disable-next-line no-restricted-globals
+    const isConfirmed = confirm("Are you sure you want to delete this?");
+
+    if (isConfirmed && handleDeleteComment && id) handleDeleteComment(id);
+  };
+
   return (
     <SC.Container>
       <SC.Avatar src={author.avatarUrl} />
       <SC.CommentWrapper>
         <SC.CommentHeader>
-          <strong>{author?.login}</strong> commented{" "}
-          {timeSince(new Date(createdAt))} ago
+          <span>
+            <strong>{author?.login}</strong> commented{" "}
+            {timeSince(new Date(createdAt))} ago
+          </span>
+          {handleDeleteComment && <TrashIcon onClick={confirmDelete} />}
         </SC.CommentHeader>
         <SC.CommentBody
           dangerouslySetInnerHTML={{
